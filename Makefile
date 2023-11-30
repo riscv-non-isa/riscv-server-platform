@@ -18,8 +18,11 @@ REVMARK ?= Draft
 DOCKER_RUN := docker run --rm -v ${PWD}:/build -w /build \
 riscvintl/riscv-docs-base-container-image:latest
 
-HEADER_SOURCE := header.adoc
-PDF_RESULT := spec-sample.pdf
+HEADER_SOURCE := server_platform_header.adoc
+PDF_RESULT := riscv-server-platform.pdf
+
+TS_HEADER_SOURCE := server_platform_ts_header.adoc
+TS_PDF_RESULT := riscv-server-platform-ts.pdf
 
 ASCIIDOCTOR_PDF := asciidoctor-pdf
 OPTIONS := --trace \
@@ -52,14 +55,17 @@ build:
 build-container:
 	@echo "Starting build inside Docker container..."
 	$(DOCKER_RUN) /bin/sh -c "$(ASCIIDOCTOR_PDF) $(OPTIONS) $(REQUIRES) --out-file=$(PDF_RESULT) $(HEADER_SOURCE)"
+	$(DOCKER_RUN) /bin/sh -c "$(ASCIIDOCTOR_PDF) $(OPTIONS) $(REQUIRES) --out-file=$(TS_PDF_RESULT) $(TS_HEADER_SOURCE)"
 	@echo "Build completed successfully inside Docker container."
 
 build-no-container:
 	@echo "Starting build..."
 	$(ASCIIDOCTOR_PDF) $(OPTIONS) $(REQUIRES) --out-file=$(PDF_RESULT) $(HEADER_SOURCE)
+	$(ASCIIDOCTOR_PDF) $(OPTIONS) $(REQUIRES) --out-file=$(TS_PDF_RESULT) $(TS_HEADER_SOURCE)
 	@echo "Build completed successfully."
 
 clean:
 	@echo "Cleaning up generated files..."
 	rm -f $(PDF_RESULT)
+	rm -f $(TS_PDF_RESULT)
 	@echo "Cleanup completed."

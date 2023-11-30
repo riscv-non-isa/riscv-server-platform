@@ -1,0 +1,18 @@
+== Server Platform Hardware Requirements
+
+=== RISC-V SoC
+
+A RISC-V server platform is based on a RISC-V SoC with RISC-V application processors.
+
+[width=100%]
+[%header, cols="5,25"]
+|===
+| ID#      ^| Requirement
+| HSOC_010  | The RISC-V SoC MUST comply to the Server SoC specification cite:[ServerSoC].
+2+| _The Server SoC specification is still under construction. This specification should
+    be updated once the specification versioning info is finalized._
+|===
+
+== Server Platform Firmware Requirements
+
+== Server Platform Security Requirements

@@ -1,0 +1,33 @@
+== Server Platform Test Specification
+
+=== Server Platform Hardware Requirements
+
+==== RISC-V SoC
+
+[width=100%]
+[%header, cols="8,25"]
+|===
+| ID#            ^| Algorithm
+|===
+
+<<<
+
+=== Server Platform Firmware Requirements
+
+[width=100%]
+[%header, cols="8,25"]
+|===
+| ID#            ^| Algorithm
+|===
+
+<<<
+
+=== Server Platform Security Requirements
+
+[width=100%]
+[%header, cols="8,25"]
+|===
+| ID#            ^| Algorithm
+|===
+
+<<<

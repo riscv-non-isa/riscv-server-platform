@@ -1,56 +1,49 @@
-= RISC-V Specification Template
+= RISC-V Server Platform and Server Platform Test specifications
 
-This repository serves as a blueprint for creating GitHub repositories within the RISC-V organization for the purpose of developing specifications. The template aims to facilitate and standardize the process of specification development.
+This document is capturing discussions at the Server Platform TG.
+These are not official specifications and everything in this document may change.
 
-NOTE: If you are viewing this in a specification repository, kindly update the title for this section and provide an introduction relevant to your repository.
+= License
 
-== License
+This work is licensed under a Creative Commons Attribution 4.0 International License (CC-BY-4.0).
+See the https://github.com/riscv/docs-spec-template/blob/main/LICENSE[LICENSE] file for details.
 
-This work is licensed under a Creative Commons Attribution 4.0 International License (CC-BY-4.0). For details, see the link:LICENSE[LICENSE] file.
+= Contributors
 
-== Contributors
+Contributors to this specification are contained in the
+https://github.com/riscv-non-isa/riscv-server-platform/blob/main/server_platform_contributors.adoc[server_platform_contributors.adoc] file.
 
-The list of contributors to this specification is maintained in the link:contributors.adoc[contributors] file.
+= Dependencies
 
-For guidelines on how to contribute, refer to the link:CONTRIBUTING.md[CONTRIBUTING] file.
+This project is built using AsciiDoctor (Ruby). The repository has been setup to build the PDF on
+checkin using GitHub actions.  Workflow dependencies are located in the `dependencies` directory.
 
-== Building the Document
+For more information on AsciiDoctor, specification guidelines, or building locally, see the
+https://github.com/riscv/docs-dev-guide[RISC-V Documentation Developer Guide].
 
-=== Prerequisites
+= Cloning the project
 
-To build the document, you'll need the following tools installed on your system:
+This project uses https://git-scm.com/book/en/v2/Git-Tools-Submodules[GitHub Submodules]
+to include the https://github.com/riscv/docs-resources[RISC-V docs-resources project]
+to achieve a common look and feel.
 
-* Make
-* asciiDoctor-pdf, asciidoctor-bibtex, asciidoctor-diagram and asciidoctor-mathematical
-* Docker
+When cloning this repository for the first time, you must either use
+`git clone --recurse-submodules` or execute `git submodule init` and `git submodule update` after the clone to populate the docs-resources directory.  Failure to clone the submodule, will result
+in the PDF build fail with an error message like the following:
 
-=== Cloning the Repository
+    $ make
+    asciidoctor-pdf \
+    -a toc \
+    -a compress \
+    -a pdf-style=docs-resources/themes/riscv-pdf.yml \
+    -a pdf-fontsdir=docs-resources/fonts \
+    --failure-level=ERROR \
+    -o profiles.pdf profiles.adoc
+    asciidoctor: ERROR: could not locate or load the built-in pdf theme `docs-resources/themes/riscv-pdf.yml'; reverting to default theme
+    No such file or directory - notoserif-regular-subset.ttf not found in docs-resources/fonts
+      Use --trace for backtrace
+    make: *** [Makefile:7: profiles.pdf] Error 1
 
-`git clone --recurse-submodules https://github.dev/riscv-non-isa/riscv-platforms`
+= Building the documents
 
-==== Setting Environment Variables
-
-These variables can be overridden by setting environment variables on your system. Here's how you can do it in Linux and MacOS:
-
-```bash
-export VERSION=v1.2.3
-export REVMARK=Release
-export PDF_RESULT=spec.pdf
-```
-
-=== Building the Documentation
-
-To start the build process, run `cd ./riscv-platforms && make build`.
-
-The Makefile script will check the availability of Docker on your system:
-
-* If Docker is available, the documentation will be built inside a Docker container using the image riscvintl/riscv-docs-base-container-image:latest. This ensures a consistent build environment across different systems.
-* If Docker is not available, the documentation will be built directly on your system using the installed tools.
-
-The documentation is generated from the AsciiDoctor source files in your project. The primary source file is specified by the `HEADER_SOURCE` variable in the Makefile.
-
-The build process utilizes several options, including theming and font settings, and generates a PDF document as output.
-
-=== Cleaning up
-
-To clean up the generated files, run `make clean`. This will remove the generated PDF file.
+The final specification form of PDF can be generated using the `make` command.
