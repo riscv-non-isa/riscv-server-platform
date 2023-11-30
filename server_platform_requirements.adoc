@@ -11,6 +11,34 @@ A RISC-V server platform is based on a RISC-V SoC with RISC-V application proces
 | HSOC_010  | The RISC-V SoC MUST comply to the Server SoC specification cite:[ServerSoC].
 2+| _The Server SoC specification is still under construction. This specification should
     be updated once the specification versioning info is finalized._
+| HSOC_020  | All peripherals that are intended for assignment to a VM or a user space device driver must be
+based on PCIe.
+|===
+
+=== Peripherals
+
+[width=100%]
+[%header, cols="5,25"]
+|===
+| ID#       ^| Requirement
+| HPER_010   | For remote-access and system engineering purposes, a fully 16550-compatible cite:[NS16550] UART MUST be implemented.
+2+| _This specification does not provide guidance around how the UART is physically exposed, i.e. via RS232 signalling or via a BMC._
+| HPER_020  a| The implemented UART MUST support:
+
+              * Interrupt-driven operation using a wired interrupt.
+              * Flow control.
+
+| HPER_030   | If a USB controller is implemented, it MUST comply to XHCI 1.2 or later cite:[XHCI].
+| HPER_040  a| Implemented XHCI controllers must:
+
+              * Support 64-bit addressing (AC64 = '1').
+              * Support a 4K PAGESIZE.
+
+| HPER_050   | If a SATA controller is implemented, it must comply to AHCI 1.3.1 or later cite:[AHCI].
+| HPER_060  a| Implemented AHCI controllers must:
+
+             * Support 64-bit addressing (S64A = '1').
+
 |===
 
 == Server Platform Firmware Requirements

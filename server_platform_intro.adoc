@@ -92,8 +92,7 @@ This specification groups the requirements in the following broad categories:
 
 === Glossary
 
-Most terminology has the standard RISC-V meaning. This table captures other
-terms used in the document.
+Most terminology has the standard RISC-V meaning. This table captures other terms used in the document. Terms in the document prefixed by 'PCIe' have the meaning defined in the PCI Express (PCIe) Base Specification cite:[PCI] (even if they are not in this table).
 
 .Terms and definitions
 [width=90%]
@@ -101,6 +100,9 @@ terms used in the document.
 |===
 | Term            ^| Definition
 | ACPI             | Advanced Configuration and Power Interface cite:[ACPI].
+| BMC              | Baseboard Management Controller. A motherboard resident
+                     management controller that provides functions for platform
+                     management.
 | Guest            | Software in a virtual machine.
 | Hypervisor       | Software entity that controls virtualization.
 | ID               | Identifier.
