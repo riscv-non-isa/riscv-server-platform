@@ -38,7 +38,7 @@ based on PCIe.
 | HPER_060  a| Implemented AHCI controllers must:
 
              * Support 64-bit addressing (S64A = '1').
-
+| HPER_070   | A battery-backed RTC or analogous timekeeping mechanism MUST be implemented.
 |===
 
 == Server Platform Firmware Requirements
@@ -50,6 +50,25 @@ based on PCIe.
 | FIRM_010  | The RISC-V SoC MUST comply to the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
 2+| _The Boot and Runtime Services specification is still under construction. This specification should
     be updated once the specification versioning info is finalized._
+| FIRM_020  | MUST include the ability to boot from disk (block) and network (PXE, HTTP) devices.
 |===
 
 == Server Platform Security Requirements
+
+Security requirements straddle hardware and firmware.
+
+TBD: it is expected the high-level RoT / boot flow requirements will come from the platform security spec.
+
+[width=100%]
+[%header, cols="5,25"]
+|===
+| ID#      ^| Requirement
+| SEC_010  | MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32)
+| SEC_020  | MUST back the UEFI Authenticated Variables implementation with
+             a mechanism that cannot be accessed or tampered by an unauthorized
+             software or hardware agent.
+| SEC_030  | MUST implement in-band firmare updates as per cite:[BRS].
+| SEC_040  | Firmware update payloads must be digitally signed.
+| SEC_050  | Firmware update signatures need to be validated before being applied.
+| SEC_060  | It should not be possible to bypass secure boot, authentication or digital signature failures.
+|===
