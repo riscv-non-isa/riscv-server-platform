@@ -3,4 +3,4 @@
 This RISC-V specification has been contributed to directly or indirectly by (in alphabetical order):
 
 [%hardbreaks]
-Andrei Warkentin, Ved Shanbhogue
+Andrei Warkentin, Ved Shanbhogue, Greg Favor
