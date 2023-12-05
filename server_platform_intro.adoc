@@ -21,21 +21,22 @@ computing systems that may be used for one or more of these purposes.
 .Components of a RISC-V Server Platform
 image::riscv-server-platform.png[width=800]
 
-The RISC-V server platform is defined as the collection of SoC hardware,
-peripherals, platform firmware, boot/runtime services, and platform security services.
-The platform provides hardware interfaces (e.g., harts, timers, interrupt
-controllers, PCIe root ports, etc.) to portable system software. It also offers a set of
-standardized boot and runtime services based on the UEFI and ACPI standards. To
-support provisioning and platform management, it interfaces with a baseboard
-management controller (BMC) through both in-band and out-of-band (OOB)
-management interfaces. The in-band management interfaces support the use of
-standard manageability specifications like MCTP, PLDM, IPMI, and Redfish for
-provisioning and management of the operating system executing on the platform.
-The OOB interface supports the use of standard manageability specifications like
-MCTP, PLDM, Redfish, and IPMI for functions such as power management, telemetry,
-debug, and provisioning. The platform security model includes guidelines and requirements
-for aspects such as debug authorization, secure/measured boot, firmware updates,
-firmware resilience, and confidential computing, among others.
+The RISC-V server platform is defined as the collection of RVA profile-compliant
+application processor harts, SoC hardware, peripherals, platform firmware,
+boot/runtime services, and platform security services. The platform provides
+hardware interfaces (e.g., harts, timers, interrupt controllers, PCIe root ports, etc.)
+to portable system software. It also offers a set of standardized boot and runtime
+services based on the UEFI and ACPI standards. To support provisioning and
+platform management, it interfaces with a baseboard management controller (BMC)
+through both in-band and out-of-band (OOB) management interfaces. The in-band
+management interfaces support the use of standard manageability specifications
+like MCTP, PLDM, IPMI, and Redfish for provisioning and management of the operating
+system executing on the platform. The OOB interface supports the use of standard
+manageability specifications like MCTP, PLDM, Redfish, and IPMI for functions such
+as power management, telemetry, debug, and provisioning. The platform security model
+includes guidelines and requirements for aspects such as debug authorization,
+secure/measured boot, firmware updates, firmware resilience, and confidential
+computing, among others.
 
 The platform firmware, typically operating at privilege level M, is
 considered part of the platform and is usually expected to be customized and
@@ -45,13 +46,13 @@ and platform security.
 
 This specification standardizes the requirements for hardware and software
 interfaces and capabilities by building on top of relevant RISC-V standards,
-such as the Server SoC, Boot and Runtime Services and Platform Security
-specifications for server software executing on the application processor harts
-at privilege levels below M. It enables OS and hypervisor vendors to support such
-platforms with a single binary OS image distribution model. The requirements posed by this
-specification represent a standard set of infrastructural capabilities,
-encompassing areas where divergence is typically unnecessary and where novelty
-is absent across implementations.
+such as the RISC-V Architecture Profiles, Server SoC, Boot and Runtime Services
+and Platform Security specifications for server software executing on the application
+processor harts at privilege levels below M. It enables OS and hypervisor vendors to
+support such platforms with a single binary OS image distribution model. The
+requirements posed by this specification represent a standard set of infrastructural
+capabilities, encompassing areas where divergence is typically unnecessary and
+where novelty is absent across implementations.
 
 To be compliant with this specification, the server platform MUST support all
 mandatory requirements and MUST support the listed versions of the specifications.

@@ -1,8 +1,87 @@
 == Server Platform Hardware Requirements
 
-=== RISC-V SoC
+=== RISC-V Harts
 
-A RISC-V server platform is based on a RISC-V SoC with RISC-V application processors.
+A RISC-V server platform includes a RISC-V application processor and may include
+one or more service processors. These service processors may provide services such
+as security and power management to software executing on the application
+processors, and they may themselves implement the RISC-V ISA. The requirements
+in this section apply solely to harts in the application processors of the SoC.
+
+[width=100%]
+[%header, cols="5,25"]
+|===
+| ID#     ^| Requirement
+| RVA_010  | The RISC-V application processor harts in the SoC MUST support the
+             RVA23 ISA profile cite:[RVA23].
+2+| _The next major release of the profiles is expected to be RVA24, which is
+     still under construction. This specification should be updated to comply
+     with the RVA24 profiles as the profile definition becomes more finalized._
+
+| RVA_020 a| The RISC-V application processor harts in the SoC MUST support the
+             following extensions:
+
+             * Sv48
+             * Sv48x4
+             * Svadu
+             * Sdtrig
+             * Sdext
+             * H
+             * Sscofpmf
+             * Zkr
+             * Ssecorrupt
+             * Ssccfg
+             * Ssctr
+             * Sscrind
+
+2+| _Ssccfg, Sscind, and Ssctr are under construction._                       +
+                                                                              +
+    _Many of these mandated extensions are optional in the RVA23 ISA profile.
+     This requirement is placed here as a placeholder. These mandates may be
+     moved into a new ISA profile specification._
+
+| RVA_030  | The ISA extensions and associated CSR field widths implemented by
+             any of the RISC-V application processor harts in the SoC MUST be
+             identical.
+2+| _The RVA23 profile supports a set of optional extensions. The set of
+     optional extensions implemented by the harts must be identical. Where the
+     extension supports optionality in the form of field widths (e.g.,
+     ASIDLEN, VLEN, allowed vstart values, physical address width, debug
+     triggers, cache-block size, etc.), the implementation of these must also be
+     identical. Having an identical ISA on all harts allows system software to
+     migrate tasks among the harts without constraints._
+
+| RVA_040  | The RISC-V application processor harts in the SoC MAY support
+             different power and performance characteristics but MUST be
+             otherwise indistinguishable from each other from a software
+             execution viewpoint.
+2+| _All harts in the SoC being indistinguishable from a software execution
+     viewpoint allows system software to migrate tasks among the harts without
+     constraints._
+
+| RVA_050 a| The RISC-V application processor hart MUST support:
+
+             * Single stepping using the step bit in  `dcsr`
+             * Debug scratch register 0 (`dscratch0`)
+
+| RVA_060 a| The RISC-V application processor hart MUST support:
+
+             * At least 4 instruction address match triggers.
+             * At least 4 load/store address match triggers.
+             * At least one icount trigger to support single stepping.
+             * At least one interrupt trigger.
+             * At least one exception trigger.
+             * Trigger filtering using `hcontext`.
+             * Trigger filtering using all VMID encodings supported by the hart.
+             * Trigger filtering using `scontext`.
+             * Trigger filtering using all ASID encodings supported by the hart.
+
+| RVA_070  | The RISC-V application processor MUST support at least 6 hardware
+             performance counters defined by the Zihpm extension in addition to
+             the three counters defined by Zicntr extension.
+|===
+
+=== RISC-V SoC
 
 [width=100%]
 [%header, cols="5,25"]
