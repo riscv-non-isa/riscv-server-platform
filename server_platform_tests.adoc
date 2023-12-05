@@ -69,6 +69,25 @@
 [%header, cols="8,25"]
 |===
 | ID#            ^| Algorithm
+| ME_HSOC_010_010 | The Server SoC tests must pass cite:[ServerSoCTest].
+| ME_HSOC_020_010 | _FIXME_.
+|===
+
+<<<
+
+==== Peripherals
+
+[width=100%]
+[%header, cols="8,25"]
+|===
+| ID#            ^| Algorithm
+| ME_HPER_010_010 | _FIXME_.
+| MF_HPER_020_010 | _FIXME_.
+| MF_HPER_030_010 | _FIXME XHCI test validating register values_.
+| MF_HPER_040_010 | _FIXME XHCI test validating register values_.
+| MF_HPER_050_010 | _FIXME AHCI test validating register values_.
+| MF_HPER_060_010 | _FIXME AHCI test validating register values_.
+| MF_HPER_070_010 | _FIXME UEFI RT based test_.
 |===
 
 <<<
@@ -79,6 +98,9 @@
 [%header, cols="8,25"]
 |===
 | ID#            ^| Algorithm
+| ME_FIRM_010_010 | The BRS-I tests must pass cite:[BRSTest].
+| ME_FIRM_020_010 | _FIXME presence tests for block / FS protocols_
+| ME_FIRM_020_020 | _FIXME presence tests for network protocols_
 |===
 
 <<<
@@ -89,6 +111,12 @@
 [%header, cols="8,25"]
 |===
 | ID#            ^| Algorithm
+| ME_SEC_010_010  | _FIXME_
+| ME_SEC_020_010  | _FIXME_
+| ME_SEC_030_010  | _FIXME_
+| ME_SEC_040_010  | _FIXME_
+| ME_SEC_050_010  | _FIXME_
+| ME_SEC_060_010  | _FIXME_
 |===
 
 <<<
