@@ -1,9 +1,6 @@
 [[header]]
 :description: RISC-V Server Platform Test Specification
 :company: RISC-V.org
-:revdate: 11/2023
-:revnumber: 0.1
-:revremark: This document is in development. Assume everything can change. See http://riscv.org/spec-state for details.
 :url-riscv: http://riscv.org
 :doctype: book
 :preface-title: Preamble
