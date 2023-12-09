@@ -3,6 +3,8 @@
 This document is capturing discussions at the Server Platform TG.
 These are not official specifications and everything in this document may change.
 
+See also the Server Platform TG https://github.com/riscv-admin/server-platform/blob/main/charter.adoc[Charter].
+
 = License
 
 This work is licensed under a Creative Commons Attribution 4.0 International License (CC-BY-4.0).
