@@ -8,15 +8,15 @@
 [%header, cols="8,25"]
 |===
 | ID#            ^| Algorithm
-| ME_RVA_010_010 a| For each application processor hart:
+| `ME_RVA_010_010` a| For each application processor hart:
 
                     . Determine the ISA node in ACPI RHCT table for that hart.
                     . Parse the ISA string in the ISA node and verify that all
                       mandatory extensions are supported.
                     . Verify that the ISA string matches that of hart 0.
                     . Report the ISA string of hart 0 into the test output log.
-| ME_RVA_020_010  | See T_RVA_010_010.
-| ME_RVA_030_010 a| . The T_RVA_010_010 verifies that all ISA strings are
+| `ME_RVA_020_010`  | See `T_RVA_010_010`.
+| `ME_RVA_030_010` a| . The `T_RVA_010_010` verifies that all ISA strings are
                       identical.
                     . For each ISA extension reported in the ISA string, if
                       there are CSRs associated with that extension, then probe
@@ -24,36 +24,36 @@
                       legal encodings on each application processor hart. The
                       CSR field widths and legal encodings supported by each
                       hart must match that of hart 0.
-| ME_RVA_040_010  | See ME_RVA_030_010.
-| ME_RVA_050_010 a| No test.
-| MF_RVA_060_010 a| Install 4 instruction address match triggers using the debug
+| `ME_RVA_040_010`  | See `ME_RVA_030_010`.
+| `ME_RVA_050_010` a| No test.
+| `MF_RVA_060_010` a| Install 4 instruction address match triggers using the debug
                     triggers SBI and verify that each trigger fires.
-| MF_RVA_060_020 a| Install 4 load address match triggers using the debug
+| `MF_RVA_060_020` a| Install 4 load address match triggers using the debug
                     triggers SBI and verify that each trigger fires.
-| MF_RVA_060_030 a| Install 4 store address match triggers using the debug
+| `MF_RVA_060_030` a| Install 4 store address match triggers using the debug
                     triggers SBI and verify that each trigger fires.
-| MF_RVA_060_040 a| Install an `icount` trigger using the debug triggers SBI and
+| `MF_RVA_060_040` a| Install an `icount` trigger using the debug triggers SBI and
                     verify single-step.
-| MF_RVA_060_050 a| . Install an interrupt trigger to match supervisor timer
+| `MF_RVA_060_050` a| . Install an interrupt trigger to match supervisor timer
                       interrupt using the debug triggers SBI.
                     . Program a timer deadline in `stimecmp`
                     . Verify that the trigger fires on reaching the programmed
                       deadline.
-| MF_RVA_060_060 a| . Install an exception trigger to match ECALL to S-mode
+| `MF_RVA_060_060` a| . Install an exception trigger to match ECALL to S-mode
                       exception using the debug triggers SBI.
                     . Transition to U-mode and invoke an ECALL.
                     . Verify that the trigger fires.
-| MF_RVA_060_070 a| . Verify `hcontext` exists.
-                    . Repeat MF_RVA_060_010 and MF_RVA_060_050 with a matching
+| `MF_RVA_060_070` a| . Verify `hcontext` exists.
+                    . Repeat `MF_RVA_060_010` and `MF_RVA_060_050` with a matching
                       and non-matching `hcontext` value.
-| ME_RVA_060_080 a| . Install and read-back triggers with VMID values between 0
+| `ME_RVA_060_080` a| . Install and read-back triggers with VMID values between 0
                       and `VMIDLEN`.
-| MF_RVA_060_090 a| . Verify `scontext` exists.
+| `MF_RVA_060_090` a| . Verify `scontext` exists.
                     . Repeat MF_RVA_060_010 and MF_RVA_060_050 with a matching
                       and non-matching `scontext` value.
-| ME_RVA_060_100 a| . Install and read-back triggers with ASID values between 0
+| `ME_RVA_060_100` a| . Install and read-back triggers with ASID values between 0
                       and `ASIDLEN`.
-| ME_RVA_070_010 a| . Request delegation of all HPM counters using the SBI.
+| `ME_RVA_070_010` a| . Request delegation of all HPM counters using the SBI.
                     . Verify at least 6 programmable HPM counter are implemented.
                     . Verify that the `scountovf` CSR is implemented
                     . Verify `cycles` and `instret` are writeable.
@@ -69,8 +69,8 @@
 [%header, cols="8,25"]
 |===
 | ID#            ^| Algorithm
-| ME_HSOC_010_010 | The Server SoC tests must pass cite:[ServerSoCTest].
-| ME_HSOC_020_010 | _FIXME_.
+| `ME_HSOC_010_010` | The Server SoC tests must pass cite:[ServerSoCTest].
+| `ME_HSOC_020_010` | _FIXME_.
 |===
 
 <<<
@@ -81,13 +81,13 @@
 [%header, cols="8,25"]
 |===
 | ID#            ^| Algorithm
-| ME_HPER_010_010 | _FIXME_.
-| MF_HPER_020_010 | _FIXME_.
-| MF_HPER_030_010 | _FIXME XHCI test validating register values_.
-| MF_HPER_040_010 | _FIXME XHCI test validating register values_.
-| MF_HPER_050_010 | _FIXME AHCI test validating register values_.
-| MF_HPER_060_010 | _FIXME AHCI test validating register values_.
-| MF_HPER_070_010 | _FIXME UEFI RT based test_.
+| `ME_HPER_010_010` | _FIXME_.
+| `MF_HPER_020_010` | _FIXME_.
+| `MF_HPER_030_010` | _FIXME XHCI test validating register values_.
+| `MF_HPER_040_010` | _FIXME XHCI test validating register values_.
+| `MF_HPER_050_010` | _FIXME AHCI test validating register values_.
+| `MF_HPER_060_010` | _FIXME AHCI test validating register values_.
+| `MF_HPER_070_010` | _FIXME UEFI RT based test_.
 |===
 
 <<<
@@ -98,9 +98,9 @@
 [%header, cols="8,25"]
 |===
 | ID#            ^| Algorithm
-| ME_FIRM_010_010 | The BRS-I tests must pass cite:[BRSTest].
-| ME_FIRM_020_010 | _FIXME presence tests for block / FS protocols_
-| ME_FIRM_020_020 | _FIXME presence tests for network protocols_
+| `ME_FIRM_010_010` | The BRS-I tests must pass cite:[BRSTest].
+| `ME_FIRM_020_010` | _FIXME presence tests for block / FS protocols_
+| `ME_FIRM_020_020` | _FIXME presence tests for network protocols_
 |===
 
 <<<
@@ -111,12 +111,12 @@
 [%header, cols="8,25"]
 |===
 | ID#            ^| Algorithm
-| ME_SEC_010_010  | _FIXME_
-| ME_SEC_020_010  | _FIXME_
-| ME_SEC_030_010  | _FIXME_
-| ME_SEC_040_010  | _FIXME_
-| ME_SEC_050_010  | _FIXME_
-| ME_SEC_060_010  | _FIXME_
+| `ME_SEC_010_010`  | _FIXME_
+| `ME_SEC_020_010`  | _FIXME_
+| `ME_SEC_030_010`  | _FIXME_
+| `ME_SEC_040_010`  | _FIXME_
+| `ME_SEC_050_010`  | _FIXME_
+| `ME_SEC_060_010`  | _FIXME_
 |===
 
 <<<

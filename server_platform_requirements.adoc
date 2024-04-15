@@ -12,13 +12,13 @@ in this section apply solely to harts in the application processors of the SoC.
 [%header, cols="5,25"]
 |===
 | ID#     ^| Requirement
-| RVA_010  | The RISC-V application processor harts in the SoC MUST support the
+| `RVA_010`  | The RISC-V application processor harts in the SoC MUST support the
              RVA23 ISA profile cite:[RVA23].
 2+| _The next major release of the profiles is expected to be RVA24, which is
      still under construction. This specification should be updated to comply
      with the RVA24 profiles as the profile definition becomes more finalized._
 
-| RVA_020 a| The RISC-V application processor harts in the SoC MUST support the
+| `RVA_020` a| The RISC-V application processor harts in the SoC MUST support the
              following extensions:
 
              * Sv48
@@ -40,7 +40,7 @@ in this section apply solely to harts in the application processors of the SoC.
      This requirement is placed here as a placeholder. These mandates may be
      moved into a new ISA profile specification._
 
-| RVA_030  | The ISA extensions and associated CSR field widths implemented by
+| `RVA_030`  | The ISA extensions and associated CSR field widths implemented by
              any of the RISC-V application processor harts in the SoC MUST be
              identical.
 2+| _The RVA23 profile supports a set of optional extensions. The set of
@@ -51,7 +51,7 @@ in this section apply solely to harts in the application processors of the SoC.
      identical. Having an identical ISA on all harts allows system software to
      migrate tasks among the harts without constraints._
 
-| RVA_040  | The RISC-V application processor harts in the SoC MAY support
+| `RVA_040`  | The RISC-V application processor harts in the SoC MAY support
              different power and performance characteristics but MUST be
              otherwise indistinguishable from each other from a software
              execution viewpoint.
@@ -59,12 +59,12 @@ in this section apply solely to harts in the application processors of the SoC.
      viewpoint allows system software to migrate tasks among the harts without
      constraints._
 
-| RVA_050 a| The RISC-V application processor hart MUST support:
+| `RVA_050` a| The RISC-V application processor hart MUST support:
 
              * Single stepping using the step bit in  `dcsr`
              * Debug scratch register 0 (`dscratch0`)
 
-| RVA_060 a| The RISC-V application processor hart MUST support:
+| `RVA_060` a| The RISC-V application processor hart MUST support:
 
              * At least 4 instruction address match triggers.
              * At least 4 load/store address match triggers.
@@ -76,7 +76,7 @@ in this section apply solely to harts in the application processors of the SoC.
              * Trigger filtering using `scontext`.
              * Trigger filtering using all ASID encodings supported by the hart.
 
-| RVA_070  | The RISC-V application processor MUST support at least 6 hardware
+| `RVA_070`  | The RISC-V application processor MUST support at least 6 hardware
              performance counters defined by the Zihpm extension in addition to
              the three counters defined by Zicntr extension.
 |===
@@ -87,10 +87,10 @@ in this section apply solely to harts in the application processors of the SoC.
 [%header, cols="5,25"]
 |===
 | ID#      ^| Requirement
-| HSOC_010  | The RISC-V SoC MUST comply to the Server SoC specification cite:[ServerSoC].
+| `HSOC_010`  | The RISC-V SoC MUST comply to the Server SoC specification cite:[ServerSoC].
 2+| _The Server SoC specification is still under construction. This specification should
     be updated once the specification versioning info is finalized._
-| HSOC_020  | All peripherals that are intended for assignment to a VM or a user space device driver must be
+| `HSOC_020`  | All peripherals that are intended for assignment to a VM or a user space device driver must be
 PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[ServerSoC, Section 2.5.11).
 |===
 
@@ -100,25 +100,25 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 [%header, cols="5,25"]
 |===
 | ID#       ^| Requirement
-| HPER_010   | For remote-access and system engineering purposes, a fully 16550-compatible cite:[NS16550] UART MUST be implemented.
-2+| _This is a stronger requirement than MNG_030 cite:[ServerSoC]. This specification does not provide guidance around how the UART is physically exposed, i.e. via RS232 signalling, USB, a BMC or other mechanism._
-| HPER_020  a| The implemented UART MUST support:
+| `HPER_010`   | For remote-access and system engineering purposes, a fully 16550-compatible cite:[NS16550] UART MUST be implemented.
+2+| _This is a stronger requirement than the Server SoC `MNG_030` requirement cite:[ServerSoC]. This specification does not provide guidance around how the UART is physically exposed, i.e. via RS232 signalling, USB, a BMC or other mechanism._
+| `HPER_020`  a| The implemented UART MUST support:
 
               * Interrupt-driven operation using a wired interrupt.
               * Flow control.
               * Support 115200 baud operation.
 
-| HPER_030   | If a USB controller is implemented, it MUST comply to XHCI 1.2 or later cite:[XHCI].
-| HPER_040  a| Implemented XHCI controllers must:
+| `HPER_030`   | If a USB controller is implemented, it MUST comply to XHCI 1.2 or later cite:[XHCI].
+| `HPER_040`  a| Implemented XHCI controllers must:
 
               * Support 64-bit addressing (AC64 = '1').
               * Support a 4K PAGESIZE.
 
-| HPER_050   | If a SATA controller is implemented, it must comply to AHCI 1.3.1 or later cite:[AHCI].
-| HPER_060  a| Implemented AHCI controllers must:
+| `HPER_050`   | If a SATA controller is implemented, it must comply to AHCI 1.3.1 or later cite:[AHCI].
+| `HPER_060`  a| Implemented AHCI controllers must:
 
              * Support 64-bit addressing (S64A = '1').
-| HPER_070   | A battery-backed RTC or analogous timekeeping mechanism MUST be implemented.
+| `HPER_070`   | A battery-backed RTC or analogous timekeeping mechanism MUST be implemented.
 |===
 
 == Server Platform Firmware Requirements
@@ -127,10 +127,10 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 [%header, cols="5,25"]
 |===
 | ID#      ^| Requirement
-| FIRM_010  | The RISC-V SoC MUST comply to the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
+| `FIRM_010`  | The RISC-V SoC MUST comply to the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
 2+| _The Boot and Runtime Services specification is still under construction. This specification should
     be updated once the specification versioning info is finalized._
-| FIRM_020  | MUST include the ability to boot from disk (block) and network (PXE, HTTP) devices.
+| `FIRM_020`  | MUST include the ability to boot from disk (block) and network (PXE, HTTP) devices.
 |===
 
 == Server Platform Security Requirements
@@ -143,12 +143,12 @@ TBD: it is expected the high-level RoT / boot flow requirements will come from t
 [%header, cols="5,25"]
 |===
 | ID#      ^| Requirement
-| SEC_010  | MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32)
-| SEC_020  | MUST back the UEFI Authenticated Variables implementation with
+| `SEC_010`  | MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32)
+| `SEC_020`  | MUST back the UEFI Authenticated Variables implementation with
              a mechanism that cannot be accessed or tampered by an unauthorized
              software or hardware agent.
-| SEC_030  | MUST implement in-band firmare updates as per cite:[BRS].
-| SEC_040  | Firmware update payloads must be digitally signed.
-| SEC_050  | Firmware update signatures need to be validated before being applied.
-| SEC_060  | It should not be possible to bypass secure boot, authentication or digital signature failures.
+| `SEC_030`  | MUST implement in-band firmare updates as per cite:[BRS].
+| `SEC_040`  | Firmware update payloads must be digitally signed.
+| `SEC_050`  | Firmware update signatures need to be validated before being applied.
+| `SEC_060`  | It should not be possible to bypass secure boot, authentication or digital signature failures.
 |===
