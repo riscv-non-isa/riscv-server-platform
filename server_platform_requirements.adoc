@@ -14,31 +14,37 @@ in this section apply solely to harts in the application processors of the SoC.
 | ID#     ^| Requirement
 | `RVA_010`  | The RISC-V application processor harts in the SoC MUST support the
              RVA23 ISA profile cite:[RVA23].
-2+| _The next major release of the profiles is expected to be RVA24, which is
-     still under construction. This specification should be updated to comply
-     with the RVA24 profiles as the profile definition becomes more finalized._
 
 | `RVA_020` a| The RISC-V application processor harts in the SoC MUST support the
              following extensions:
 
              * Sv48
-             * Sv48x4
              * Svadu
              * Sdtrig
              * Sdext
-             * H
-             * Sscofpmf
              * Zkr
-             * Ssecorrupt
              * Ssccfg
-             * Ssctr
-             * Sscrind
+             * Sscsrind
+             * Ssstrict
+             * Smcntrpmf
+             * Ssaia
 
-2+| _Ssccfg, Sscind, and Ssctr are under construction._                       +
-                                                                              +
-    _Many of these mandated extensions are optional in the RVA23 ISA profile.
+2+| _Many of these mandated extensions are optional in the RVA23 ISA profile.
      This requirement is placed here as a placeholder. These mandates may be
      moved into a new ISA profile specification._
+
+| `RVA_021` a| The RISC-V application processor harts in the SoC MUST support
+             the Ssctr extension with a CTR depth value of 32. Additional CTR
+             depth values MAY be supported.
+
+2+| _Mandating implementation of CTR depth of 32 provides a common CTR depth
+     across implementations for purposes of VM migration._                    +
+                                                                              +
+    _Ssctr is under construction._
+
+| `RVA_022` a| The RISC-V application processor harts MUST raise an
+             illegal-instruction exception when attempting to execute
+             unimplemented opcodes or access unimplemented CSRs.
 
 | `RVA_030`  | The ISA extensions and associated CSR field widths implemented by
              any of the RISC-V application processor harts in the SoC MUST be
