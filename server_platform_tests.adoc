@@ -88,6 +88,7 @@
 | `MF_HPER_050_010` | _FIXME AHCI test validating register values_.
 | `MF_HPER_060_010` | _FIXME AHCI test validating register values_.
 | `MF_HPER_070_010` | _FIXME UEFI RT based test_.
+| `MF_HPER_080_010` | _FIXME_.
 |===
 
 <<<
