@@ -112,18 +112,18 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 
               * Interrupt-driven operation using a wired interrupt.
               * Flow control.
-              * Support 115200 baud operation.
+              * 115200 baud operation.
 
 | `HPER_030`   | If a USB controller is implemented, it MUST comply to XHCI 1.2 or later cite:[XHCI].
-| `HPER_040`  a| Implemented XHCI controllers MUST:
+| `HPER_040`  a| Implemented XHCI controllers MUST support:
 
-              * Support 64-bit addressing (AC64 = '1').
-              * Support a 4K PAGESIZE.
+              * 64-bit addressing (AC64 = '1').
+              * A 4K PAGESIZE.
 
 | `HPER_050`   | If a SATA controller is implemented, it MUST comply to AHCI 1.3.1 or later cite:[AHCI].
-| `HPER_060`  a| Implemented AHCI controllers MUST:
+| `HPER_060`  a| Implemented AHCI controllers MUST support:
 
-             * Support 64-bit addressing (S64A = '1').
+             * 64-bit addressing (S64A = '1').
 | `HPER_070`   | A battery-backed RTC or analogous timekeeping mechanism MUST be implemented.
 | `HPER_080`   | A Trusted Platform Module (TPM) MUST be implemented and adhere to the TPM 2.0 Library specification cite:[TPM20].
 |===
