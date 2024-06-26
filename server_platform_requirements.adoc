@@ -156,6 +156,6 @@ TBD: it is expected the high-level RoT / boot flow requirements will come from t
              software or hardware agent.
 | `SEC_030`  | MUST implement in-band firmare updates as per cite:[BRS].
 | `SEC_040`  | Firmware update payloads MUST be digitally signed.
-| `SEC_050`  | Firmware update signatures need to be validated before being applied.
-| `SEC_060`  | It should not be possible to bypass secure boot, authentication or digital signature failures.
+| `SEC_050`  | Firmware update signatures MUST be validated before being applied.
+| `SEC_060`  | It MUST not be possible to bypass secure boot, authentication or digital signature failures.
 |===
