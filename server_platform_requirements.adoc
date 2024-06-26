@@ -97,7 +97,7 @@ in this section apply solely to harts in the application processors of the SoC.
 2+| _The Server SoC specification is still under construction. This specification should
     be updated once the specification versioning info is finalized._
 | `HSOC_020`  | All peripherals that are intended for assignment to a VM or a user space device driver MUST be
-PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[ServerSoC, Section 2.5.11).
+PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[ServerSoC], Section 2.5.11).
 |===
 
 === Peripherals
