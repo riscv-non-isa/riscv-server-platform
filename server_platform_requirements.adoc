@@ -93,11 +93,11 @@ in this section apply solely to harts in the application processors of the SoC.
 [%header, cols="5,25"]
 |===
 | ID#      ^| Requirement
-| `HSOC_010`  | The RISC-V SoC MUST comply to the Server SoC specification cite:[ServerSoC].
+| `HSOC_010`  | The RISC-V SoC MUST comply with the Server SoC specification cite:[ServerSoC].
 2+| _The Server SoC specification is still under construction. This specification should
     be updated once the specification versioning info is finalized._
-| `HSOC_020`  | All peripherals that are intended for assignment to a VM or a user space device driver must be
-PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[ServerSoC, Section 2.5.11).
+| `HSOC_020`  | All peripherals that are intended for assignment to a VM or a user space device driver MUST be
+PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[ServerSoC], Section 2.4).
 |===
 
 === Peripherals
@@ -112,18 +112,18 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 
               * Interrupt-driven operation using a wired interrupt.
               * Flow control.
-              * Support 115200 baud operation.
+              * 115200 baud operation.
 
-| `HPER_030`   | If a USB controller is implemented, it MUST comply to XHCI 1.2 or later cite:[XHCI].
-| `HPER_040`  a| Implemented XHCI controllers must:
+| `HPER_030`   | If a USB controller is implemented, it MUST comply with XHCI 1.2 or later cite:[XHCI].
+| `HPER_040`  a| Implemented XHCI controllers MUST support:
 
-              * Support 64-bit addressing (AC64 = '1').
-              * Support a 4K PAGESIZE.
+              * 64-bit addressing (AC64 = '1').
+              * A 4K PAGESIZE.
 
-| `HPER_050`   | If a SATA controller is implemented, it must comply to AHCI 1.3.1 or later cite:[AHCI].
-| `HPER_060`  a| Implemented AHCI controllers must:
+| `HPER_050`   | If a SATA controller is implemented, it MUST comply with AHCI 1.3.1 or later cite:[AHCI].
+| `HPER_060`  a| Implemented AHCI controllers MUST support:
 
-             * Support 64-bit addressing (S64A = '1').
+             * 64-bit addressing (S64A = '1').
 | `HPER_070`   | A battery-backed RTC or analogous timekeeping mechanism MUST be implemented.
 | `HPER_080`   | A Trusted Platform Module (TPM) MUST be implemented and adhere to the TPM 2.0 Library specification cite:[TPM20].
 |===
@@ -134,7 +134,7 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 [%header, cols="5,25"]
 |===
 | ID#      ^| Requirement
-| `FIRM_010`  | The RISC-V SoC MUST comply to the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
+| `FIRM_010`  | The RISC-V SoC MUST comply with the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
 2+| _The Boot and Runtime Services specification is still under construction. This specification should
     be updated once the specification versioning info is finalized._
 | `FIRM_020`  | MUST include the ability to boot from disk (block) and network (PXE, HTTP) devices.
@@ -155,7 +155,7 @@ TBD: it is expected the high-level RoT / boot flow requirements will come from t
              a mechanism that cannot be accessed or tampered by an unauthorized
              software or hardware agent.
 | `SEC_030`  | MUST implement in-band firmare updates as per cite:[BRS].
-| `SEC_040`  | Firmware update payloads must be digitally signed.
-| `SEC_050`  | Firmware update signatures need to be validated before being applied.
-| `SEC_060`  | It should not be possible to bypass secure boot, authentication or digital signature failures.
+| `SEC_040`  | Firmware update payloads MUST be digitally signed.
+| `SEC_050`  | Firmware update signatures MUST be validated before being applied.
+| `SEC_060`  | It MUST not be possible to bypass secure boot, authentication or digital signature failures.
 |===
