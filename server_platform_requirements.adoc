@@ -126,6 +126,7 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
              * 64-bit addressing (S64A = '1').
 | `HPER_070`   | A battery-backed RTC or analogous timekeeping mechanism MUST be implemented.
 | `HPER_080`   | A Trusted Platform Module (TPM) MUST be implemented and adhere to the TPM 2.0 Library specification cite:[TPM20].
+| `HPER_090` | MUST include a hardware RNG.
 |===
 
 == Server Platform Firmware Requirements
@@ -137,7 +138,16 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `FIRM_010`  | The RISC-V SoC MUST comply with the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
 2+| _The Boot and Runtime Services specification is still under construction. This specification should
     be updated once the specification versioning info is finalized._
-| `FIRM_020`  | MUST include the ability to boot from disk (block) and network (PXE, HTTP) devices.
+| `FIRM_020`  | MUST include configuration infrastructure, supporting relevant HII protocols (cite:[UEFI] Section 2.6.2)
+| `FIRM_030`  | SHOULD include the ability to boot from disk (block) device, supporting relevant protocols (cite:[UEFI] Section 2.6.2)
+| `FIRM_040`  | SHOULD include the ability to perform a TFTP-based boot from a network device and to validate a boot
+    image received through a network device, supporting relevant protocols (cite:[UEFI] Section 2.6.2).
+| `FIRM_050`  | SHOULD support UEFI general purpose network applications, including IPv4, IPv6, DNS, TLS, IPSec and VLAN features, supporting relevant protocols (cite:[UEFI] Section 2.6.2).
+| `FIRM_060`  | MUST support option ROMs from devices not permanently attached to the platform, including the ability to authenticate these option ROMs (cite:[UEFI] Section 2.6.2).
+| `FIRM_070` | SHOULD support 64-bit Intel architecture (aka x64, aka AMD64) UEFI option ROM drivers for improved compatiblity with third-party IHV ecosystem.
+| `FIRM_080` | SHOULD support the ability to perform a HTTP-based boot from a network device, including support for HTTPS and DNS, supporting relevant HII protocols (cite:[UEFI] Section 2.6.2).
+| `FIRM_090` | MUST support the installation of Load Option Variables (Boot####, or Driver####, or SysPrep####) consistent with cite:[UEFI] Section 2.6.2.
+| `FIRM_100` | MUST support the ability to register for notifications when a call to ResetSystem is called, consistent with cite:[UEFI] Section 2.6.2.
 |===
 
 == Server Platform Security Requirements
