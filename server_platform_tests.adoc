@@ -122,6 +122,8 @@
 |===
 | ID#            ^| Algorithm
 | `ME_SEC_010_010`  | _FIXME_
+| `ME_SEC_011_010`  | _FIXME_
+| `ME_SEC_012_010`  | _FIXME_
 | `ME_SEC_020_010`  | _FIXME_
 | `ME_SEC_030_010`  | _FIXME_
 | `ME_SEC_040_010`  | _FIXME_
