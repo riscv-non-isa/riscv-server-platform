@@ -89,6 +89,7 @@
 | `MF_HPER_060_010` | _FIXME AHCI test validating register values_.
 | `MF_HPER_070_010` | _FIXME UEFI RT based test_.
 | `MF_HPER_080_010` | _FIXME_.
+| `MF_HPER_090_010` | _FIXME_.
 |===
 
 <<<
@@ -100,8 +101,16 @@
 |===
 | ID#            ^| Algorithm
 | `ME_FIRM_010_010` | The BRS-I tests must pass cite:[BRSTest].
-| `ME_FIRM_020_010` | _FIXME presence tests for block / FS protocols_
-| `ME_FIRM_020_020` | _FIXME presence tests for network protocols_
+| `ME_FIRM_020_010` | _FIXME_.
+| `ME_FIRM_030_010` | _FIXME_.
+| `ME_FIRM_040_010` | _FIXME_.
+| `ME_FIRM_050_010` | _FIXME_.
+| `ME_FIRM_060_010` | _FIXME_.
+| `ME_FIRM_070_010` | _FIXME_.
+| `ME_FIRM_080_010` | _FIXME_.
+| `ME_FIRM_090_010` | _FIXME_.
+| `ME_FIRM_100_010` | _FIXME_.
+| `ME_FIRM_110_010` | _FIXME_.
 |===
 
 <<<
