@@ -154,13 +154,15 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 
 Security requirements straddle hardware and firmware.
 
-TBD: it is expected the high-level RoT / boot flow requirements will come from the platform security spec.
+TBD: it is expected the high-level root of trust / boot flow requirements will come from the platform security spec.
 
 [width=100%]
 [%header, cols="5,25"]
 |===
 | ID#      ^| Requirement
 | `SEC_010`  | MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32)
+| `SEC_011`  | It MUST be possible for a physically present user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
+| `SEC_012`  | It MUST be possible for a physically present user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
 | `SEC_020`  | MUST back the UEFI Authenticated Variables implementation with
              a mechanism that cannot be accessed or tampered by an unauthorized
              software or hardware agent.
