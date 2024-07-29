@@ -154,7 +154,7 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 
 Security requirements straddle hardware and firmware.
 
-TBD: it is expected the high-level RoT / boot flow requirements will come from the platform security spec.
+TBD: it is expected the high-level root of trust / boot flow requirements will come from the platform security spec.
 
 [width=100%]
 [%header, cols="5,25"]
