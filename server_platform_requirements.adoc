@@ -26,7 +26,6 @@ in this section apply solely to harts in the application processors of the SoC.
              * Ssccfg
              * Sscsrind
              * Ssstrict
-             * Smcntrpmf
              * Ssaia
 
 2+| _Many of these mandated extensions are optional in the RVA23 ISA profile.
