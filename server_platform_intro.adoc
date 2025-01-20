@@ -48,8 +48,8 @@ This specification standardizes the requirements for hardware and software
 interfaces and capabilities by building on top of relevant RISC-V standards,
 such as the RISC-V Architecture Profiles, Server SoC, Boot and Runtime Services
 and Platform Security specifications for server software executing on the application
-processor harts at privilege levels below M. It enables OS and hypervisor vendors to
-support such platforms with a single binary OS image distribution model. The
+processor harts at privilege levels below M. It enables operating system and hypervisor
+vendors to support such platforms with a single binary OS image distribution model. The
 requirements posed by this specification represent a standard set of infrastructural
 capabilities, encompassing areas where divergence is typically unnecessary and
 where novelty is absent across implementations.
@@ -105,9 +105,8 @@ Most terminology has the standard RISC-V meaning. This table captures other term
                      management controller that provides functions for platform
                      management.
 | Guest            | Software in a virtual machine.
-| Hypervisor       | Software entity that controls virtualization.
 | ID               | Identifier.
-| OS               | Operating System.
+| OS               | Operating System or Hypervisor.
 | SBI              | RISC-V Supervisor Binary Interface Specification cite:[SBI].
 | SoC              | System on a chip, also referred as system-on-a-chip and
                      system-on-chip.
