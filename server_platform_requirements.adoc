@@ -145,7 +145,7 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `FIRM_060`  | MUST support option ROMs from devices not permanently attached to the platform, including the ability to authenticate these option ROMs (cite:[UEFI] Section 2.6.2).
 | `FIRM_070` | SHOULD support 64-bit Intel architecture (aka x64, aka AMD64) UEFI option ROM drivers for improved compatiblity with third-party IHV ecosystem.
 | `FIRM_080` | SHOULD support the ability to perform a HTTP-based boot from a network device, including support for HTTPS and DNS, supporting relevant HII protocols (cite:[UEFI] Section 2.6.2).
-| `FIRM_090` | MUST support the installation of Load Option Variables (Boot####, or Driver####, or SysPrep####) consistent with cite:[UEFI] Section 2.6.2.
+| `FIRM_090` | MUST support the installation of Load Option Variables (+Boot####, or Driver####, or SysPrep####+) consistent with cite:[UEFI] Section 2.6.2.
 | `FIRM_100` | MUST support the ability to register for notifications when a call to ResetSystem is called, consistent with cite:[UEFI] Section 2.6.2.
 |===
 
