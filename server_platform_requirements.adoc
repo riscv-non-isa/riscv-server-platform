@@ -137,6 +137,7 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `FIRM_010`  | The RISC-V SoC MUST comply with the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
 2+| _The Boot and Runtime Services specification is still under construction. This specification should
     be updated once the specification versioning info is finalized._
+| `FIRM_012`  | If RAS is supported, the firmware MUST implement the SBI Supervisor Software Events (SSE) extension.
 | `FIRM_020`  | MUST include configuration infrastructure, supporting relevant HII protocols (cite:[UEFI] Section 2.6.2)
 | `FIRM_030`  | SHOULD include the ability to boot from disk (block) device, supporting relevant protocols (cite:[UEFI] Section 2.6.2)
 | `FIRM_040`  | SHOULD include the ability to perform a TFTP-based boot from a network device and to validate a boot
