@@ -108,8 +108,9 @@ Most terminology has the standard RISC-V meaning. This table captures other term
 | Hypervisor       | Software entity that controls virtualization.
 | ID               | Identifier.
 | OS               | Operating System.
+| SBI              | RISC-V Supervisor Binary Interface Specification cite:[SBI].
 | SoC              | System on a chip, also referred as system-on-a-chip and
                      system-on-chip.
-| UEFI             | Unified Extensible Firmware Interface. cite:[UEFI]
+| UEFI             | Unified Extensible Firmware Interface cite:[UEFI].
 | VM               | Virtual Machine.
 |===
