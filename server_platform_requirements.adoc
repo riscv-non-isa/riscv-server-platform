@@ -147,6 +147,7 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `FIRM_080` | SHOULD support the ability to perform a HTTP-based boot from a network device, including support for HTTPS and DNS, supporting relevant HII protocols (cite:[UEFI] Section 2.6.2).
 | `FIRM_090` | MUST support the installation of Load Option Variables (+Boot####, or Driver####, or SysPrep####+) consistent with cite:[UEFI] Section 2.6.2.
 | `FIRM_100` | MUST support the ability to register for notifications when a call to ResetSystem is called, consistent with cite:[UEFI] Section 2.6.2.
+| `FIRM_110` | If an IOMMU is present, then it MUST be described using the RIMT ACPI table cite:[RIMT].
 |===
 
 == Server Platform Security Requirements
