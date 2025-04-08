@@ -37,9 +37,7 @@ in this section apply solely to harts in the application processors of the SoC.
              depth values MAY be supported.
 
 2+| _Mandating implementation of CTR depth of 32 provides a common CTR depth
-     across implementations for purposes of VM migration._                    +
-                                                                              +
-    _Ssctr is under construction._
+     across implementations for purposes of VM migration._
 
 | `RVA_022` a| The RISC-V application processor harts MUST raise an
              illegal-instruction exception when attempting to execute
@@ -93,8 +91,6 @@ in this section apply solely to harts in the application processors of the SoC.
 |===
 | ID#      ^| Requirement
 | `HSOC_010`  | The RISC-V SoC MUST comply with the Server SoC specification cite:[ServerSoC].
-2+| _The Server SoC specification is still under construction. This specification should
-    be updated once the specification versioning info is finalized._
 | `HSOC_020`  | All peripherals that are intended for assignment to a VM or a user space device driver MUST be
 PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[ServerSoC], Section 2.4).
 |===
@@ -135,8 +131,6 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 |===
 | ID#      ^| Requirement
 | `FIRM_010`  | The RISC-V SoC MUST comply with the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
-2+| _The Boot and Runtime Services specification is still under construction. This specification should
-    be updated once the specification versioning info is finalized._
 | `FIRM_012`  | If RAS is supported, the firmware MUST implement the SBI Supervisor Software Events (SSE) extension.
 | `FIRM_020`  | MUST include configuration infrastructure, supporting relevant HII protocols (cite:[UEFI] Section 2.6.2)
 | `FIRM_030`  | SHOULD include the ability to boot from disk (block) device, supporting relevant protocols (cite:[UEFI] Section 2.6.2)
@@ -154,8 +148,6 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 == Server Platform Security Requirements
 
 Security requirements straddle hardware and firmware.
-
-TBD: it is expected the high-level root of trust / boot flow requirements will come from the platform security spec.
 
 [width=100%]
 [%header, cols="5,25"]
