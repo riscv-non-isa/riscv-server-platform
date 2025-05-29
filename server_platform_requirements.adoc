@@ -121,7 +121,6 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `HPER_060`  a| Implemented AHCI controllers MUST support:
 
              * 64-bit addressing (S64A = '1').
-| `HPER_070`   | A battery-backed RTC or analogous timekeeping mechanism MUST be implemented.
 | `HPER_080`   | A Trusted Platform Module (TPM) MUST be implemented and adhere to the TPM 2.0 Library specification cite:[TPM20].
 | `HPER_090` | MUST include a hardware RNG.
 |===
