@@ -39,10 +39,6 @@ in this section apply solely to harts in the application processors of the SoC.
 2+| _Mandating implementation of CTR depth of 32 provides a common CTR depth
      across implementations for purposes of VM migration._
 
-| `RVA_022` a| The RISC-V application processor harts MUST raise an
-             illegal-instruction exception when attempting to execute
-             unimplemented opcodes or access unimplemented CSRs.
-
 | `RVA_030`  | The ISA extensions and associated CSR field widths implemented by
              any of the RISC-V application processor harts in the SoC MUST be
              identical.
