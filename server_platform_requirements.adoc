@@ -74,10 +74,16 @@ in this section apply solely to harts in the application processors of the SoC.
              * Trigger filtering using all VMID encodings supported by the hart.
              * Trigger filtering using `scontext`.
              * Trigger filtering using all ASID encodings supported by the hart.
+2+| _The motivation for including at least four instruction address and four
+     load/store address match triggers originates from prior experience with
+     x86 servers._
 
 | `RVA_070`  | The RISC-V application processor MUST support at least 6 hardware
              performance counters defined by the Zihpm extension in addition to
-             the three counters defined by Zicntr extension.
+             the three counters defined by the Zicntr extension.
+2+| _The motivation for including at least six performance counters, in addition
+     to the three counters defined by the Zicntr extension, originates from prior
+     experience with x86 servers._
 |===
 
 === RISC-V SoC
