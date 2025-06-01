@@ -1,17 +1,17 @@
-== Server Platform Hardware Requirements
+== Server Platform Hardware Rules
 
 === RISC-V Harts
 
 A RISC-V server platform includes a RISC-V application processor and may include
 one or more service processors. These service processors may provide services such
 as security and power management to software executing on the application
-processors, and they may themselves implement the RISC-V ISA. The requirements
+processors, and they may themselves implement the RISC-V ISA. The rules
 in this section apply solely to harts in the application processors of the SoC.
 
 [width=100%]
 [%header, cols="5,25"]
 |===
-| ID#     ^| Requirement
+| ID#     ^| Rule
 | `RVA_010`  | The RISC-V application processor harts in the SoC MUST support the
              RVA23 ISA profile cite:[RVA23].
 
@@ -29,8 +29,7 @@ in this section apply solely to harts in the application processors of the SoC.
              * Ssaia
 
 2+| _Many of these mandated extensions are optional in the RVA23 ISA profile.
-     This requirement is placed here as a placeholder. These mandates may be
-     moved into a new ISA profile specification._
+     These mandates may be moved into a new ISA profile specification._
 
 | `RVA_021` a| The RISC-V application processor harts in the SoC MUST support
              the Ssctr extension with a CTR depth value of 32. Additional CTR
@@ -89,7 +88,7 @@ in this section apply solely to harts in the application processors of the SoC.
 [width=100%]
 [%header, cols="5,25"]
 |===
-| ID#      ^| Requirement
+| ID#      ^| Rule
 | `HSOC_010`  | The RISC-V SoC MUST comply with the Server SoC specification cite:[ServerSoC].
 | `HSOC_020`  | All peripherals that are intended for assignment to a VM or a user space device driver MUST be
 PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[ServerSoC], Section 2.4).
@@ -100,9 +99,9 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 [width=100%]
 [%header, cols="5,25"]
 |===
-| ID#       ^| Requirement
+| ID#       ^| Rule
 | `HPER_010`   | For remote-access and system engineering purposes, a fully 16550-compatible cite:[NS16550] UART MUST be implemented.
-2+| _This is a stronger requirement than the Server SoC `MNG_030` requirement cite:[ServerSoC]. This specification does not provide guidance around how the UART is physically exposed, i.e. via RS232 signalling, USB, a BMC or other mechanism._
+2+| _This is a stronger requirement than the Server SoC `MNG_030` rule cite:[ServerSoC]. This specification does not provide guidance around how the UART is physically exposed, i.e. via RS232 signalling, USB, a BMC or other mechanism._
 | `HPER_020`  a| The implemented UART MUST support:
 
               * Interrupt-driven operation using a wired interrupt.
@@ -124,12 +123,12 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `HPER_090` | MUST include a hardware RNG.
 |===
 
-== Server Platform Firmware Requirements
+== Server Platform Firmware Rules
 
 [width=100%]
 [%header, cols="5,25"]
 |===
-| ID#      ^| Requirement
+| ID#      ^| Rule
 | `FIRM_010`  | The RISC-V SoC MUST comply with the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
 | `FIRM_012`  | If RAS is supported, the firmware MUST implement the SBI Supervisor Software Events (SSE) extension.
 | `FIRM_020`  | MUST include configuration infrastructure, supporting relevant HII protocols (cite:[UEFI] Section 2.6.2)
@@ -145,14 +144,14 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `FIRM_110` | If an IOMMU is present, then it MUST be described using the RIMT ACPI table cite:[RIMT].
 |===
 
-== Server Platform Security Requirements
+== Server Platform Security Rules
 
-Security requirements straddle hardware and firmware.
+Security rules straddle hardware and firmware.
 
 [width=100%]
 [%header, cols="5,25"]
 |===
-| ID#      ^| Requirement
+| ID#      ^| Rule
 | `SEC_010`  | MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32)
 | `SEC_011`  | It MUST be possible for a physically present user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
 | `SEC_012`  | It MUST be possible for a physically present user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
