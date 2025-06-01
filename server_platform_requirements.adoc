@@ -130,6 +130,11 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 
              * 64-bit addressing (S64A = '1').
 | `HPER_080`   | A Trusted Platform Module (TPM) MUST be implemented and adhere to the TPM 2.0 Library specification cite:[TPM20].
+2+| _It is common for secure systems to support multiple trust chains with their
+     own root of trust. For example, a TPM can be secondary root of trust for
+     UEFI boot flows while a hardware RoT is the root of trust for platform
+     firmware, platform attestation, security lifecycle management of the
+     secondary roots of trust, among others._
 |===
 
 == Server Platform Firmware Rules
@@ -161,6 +166,65 @@ Security rules straddle hardware and firmware.
 [%header, cols="5,25"]
 |===
 | ID#      ^| Rule
+| `SEC_001`  | The server platform MUST implement a hardware Root of Trust (RoT)
+               (cite:[TCGGL]) as a dedicated and trusted subsystem, isolated
+               from the application processor, to provide security-specific
+               functions.
+2+| _A Root of Trust (RoT) is a component that performs one or more
+     security-specific functions, such as measurement, storage, reporting,
+     verification, update, security lifecycle management, and key derivation.
+
+     An RoT is typically a combination of a minimal amount of hardware and
+     firmware that must be implicitly trusted by all system components to
+     always behave as expected, since its misbehavior cannot be detected under
+     normal operation.
+
+     A hardware RoT moves critical functions and assets off the application
+     processor hart to a dedicated and isolated trusted subsystem, which
+     provides stronger protection against both physical and logical attacks._
+
+| `SEC_002`  | The hardware RoT MUST manage a security lifecycle.
+2+| _A security lifecycle reflects the trustworthiness of a system throughout
+     its lifetime and indicates the lifecycle state of hardware-provisioned
+     assets.
+
+     The minimum security lifecycle should include the following states:
+     * Manufacture – The system may not yet be locked down and contains no
+       hardware-provisioned assets.
+
+     * Security Provisioning – The process of provisioning hardware-provisioned
+       assets.
+
+     * Secured – Hardware-provisioned assets are locked (immutable); only
+       authorized software may be executed, and revealing debug capabilities
+       are disabled.
+
+     * Recoverable Debug – Part of the system is in a revealing debug state.
+       The RoT remains uncompromised, and hardware-provisioned secrets
+       remain protected.
+
+     * Terminated – Hardware-provisioned assets are permanently inaccessible and
+       revoked prior to entering this state. This includes derived assets such as
+       attestation keys._
+
+| `SEC_003`  | The hardware RoT SHOULD implement a secure identity and SHOULD
+               support platform attestation.
+2+| _A **secure identity** is an element capable of generating a cryptographic
+     signature that can be verified by a relying party. It represents the immutable
+     part of the secure platform--such as immutable hardware, configurations, and
+     firmware. Immutable components cannot be modified after the completion of
+     security provisioning. See (cite:[TCGDICE]) for examples of secure identity
+     derivation and use.
+
+     **Attestation** is the process of vouching for the accuracy of information
+     (cite:[TCGGL]). Platform attestation enables a relying party to determine the
+     trustworthiness of the platform before submitting sensitive assets to it.
+     See (cite:[SPDM]) for an example of the protocols used for attestation.
+
+     The attestation must be signed by the hardware RoT using a hardware-provisioned
+     secure identity or a cryptographic key derived in a verifiable manner from that
+     identity._
+
 | `SEC_010`  | The firmware MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32, "Secure Boot and Driver Signing")
 | `SEC_011`  | It MUST be possible for a physically present user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
 | `SEC_012`  | It MUST be possible for a physically present user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
