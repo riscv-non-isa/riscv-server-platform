@@ -201,15 +201,18 @@ Security requirements straddle hardware and firmware.
 
 | `SEC_003`  | The hardware RoT MUST implement a secure identity and MUST support
                platform attestation.
-2+| _A secure identity is an element capable of generating a cryptographic
+2+| _A **secure identity** is an element capable of generating a cryptographic
      signature that can be verified by a remote party. It represents the immutable
      part of the secure platform--such as immutable hardware, configurations, and
      firmware. Immutable components cannot be modified after the completion of
-     security provisioning.
+     security provisioning. See (cite:[TCGDICE]) for examples of secure identity
+     derivation and use.
 
-     Platform attestation enables a relying party to determine the
+     **Attestation** is the process of vouching for the accuracy of information
+     (cite:[TCGGL]). Platform attestation enables a relying party to determine the
      trustworthiness of the platform before submitting sensitive assets to it.
-     The attestation MUST be signed by the hardware RoT using a hardware-provisioned
+
+     The attestation must be signed by the hardware RoT using a hardware-provisioned
      secure identity or a cryptographic key derived in a verifiable manner from that
      identity._
 
