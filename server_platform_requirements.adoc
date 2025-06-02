@@ -45,22 +45,23 @@ in this section apply solely to harts in the application processors of the SoC.
 
 | `RVA_030`  | The ISA extensions and associated CSR field widths implemented by
              any of the RISC-V application processor harts in the SoC MUST be
-             identical.
+             identical within a supervisor domain.
 2+| _The RVA23 profile supports a set of optional extensions. The set of
      optional extensions implemented by the harts must be identical. Where the
      extension supports optionality in the form of field widths (e.g.,
      ASIDLEN, VLEN, allowed vstart values, physical address width, debug
      triggers, cache-block size, etc.), the implementation of these must also be
-     identical. Having an identical ISA on all harts allows system software to
-     migrate tasks among the harts without constraints._
+     identical. Having an identical ISA on all harts in a supervisor domain
+     allows system software to migrate tasks among the harts without
+     constraints._
 
 | `RVA_040`  | The RISC-V application processor harts in the SoC MAY support
              different power and performance characteristics but MUST be
              otherwise indistinguishable from each other from a software
-             execution viewpoint.
-2+| _All harts in the SoC being indistinguishable from a software execution
-     viewpoint allows system software to migrate tasks among the harts without
-     constraints._
+             execution viewpoint within a supervisor domain.
+2+| _All harts in a supervisor domain being indistinguishable from a software
+     execution viewpoint allows system software to migrate tasks among the harts
+     without constraints._
 
 | `RVA_050` a| The RISC-V application processor hart MUST support:
 
