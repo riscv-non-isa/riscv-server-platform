@@ -66,7 +66,6 @@ in this section apply solely to harts in the application processors of the SoC.
 | `RVA_050` a| The RISC-V application processor hart MUST support:
 
              * Single stepping using the step bit in  `dcsr`
-             * Debug scratch register 0 (`dscratch0`)
 
 | `RVA_060` a| The RISC-V application processor hart MUST support:
 
