@@ -104,8 +104,14 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 [%header, cols="5,25"]
 |===
 | ID#       ^| Requirement
-| `HPER_010`   | For remote-access and system engineering purposes, a fully 16550-compatible cite:[NS16550] UART MUST be implemented.
-2+| _This is a stronger requirement than the Server SoC `MNG_030` requirement cite:[ServerSoC]. This specification does not provide guidance around how the UART is physically exposed, i.e. via RS232 signalling, USB, a BMC or other mechanism._
+| `HPER_010`   | For remote-access and system engineering purposes in early boot software, a fully 16550-compatible cite:[NS16550] UART MUST be implemented.
+2+| _This is a stronger requirement than the Server SoC `MNG_030` requirement
+    cite:[ServerSoC].  The intention here is to simplify early boot software
+    support requirements.  This UART is not intended to be directly assignable
+    to virtual machines, and thus there is no requirement for this UART to
+    appear as a PCI device.  This specification does not provide guidance around
+    how the UART is physically exposed, i.e. via RS232 signalling, USB, a BMC or
+    other mechanism._
 | `HPER_020`  a| The implemented UART MUST support:
 
               * Interrupt-driven operation using a wired interrupt.
