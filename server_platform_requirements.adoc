@@ -158,22 +158,24 @@ Security requirements straddle hardware and firmware.
 [%header, cols="5,25"]
 |===
 | ID#      ^| Requirement
-| `SEC_001`  | MUST implement a hardware root of trust (RoT).
-2+| _A root of trust (RoT) is the foundation on which all secure operations of a
-     system depend. A RoT is typically a combination of a minimal amount of
-     hardware and software that has to be implicitly trusted by all system
-     components.
+| `SEC_001`  | The server platform MUST implement a hardware Root of Trust (RoT)
+               (cite: [TCGGL]) as a dedicated and trusted subsystem, isolated
+               from the application processor, to provide security-specific
+               functions.
+2+| _A Root of Trust (RoT) is a component that performs one or more
+     security-specific functions, such as measurement, storage, reporting,
+     verification, update, security lifecycle management, and key derivation.
 
-     A RoT provides security services such as:
-     * Boot and attestation.
-     * Security lifecycle management.
-     * Key derivation.
+     An RoT is typically a combination of a minimal amount of hardware and
+     firmware that must be implicitly trusted by all system components to
+     always behave as expected, since its misbehavior cannot be detected under
+     normal operation.
 
-    A HW RoT moves critical functions and assets off an application processor
-    Hart to a dedicated and possibly isolated trusted subsystem, which can provide
-    stronger protection against physical and logical attacks._
+     A hardware RoT moves critical functions and assets off the application
+     processor hart to a dedicated and isolated trusted subsystem, which
+     provides stronger protection against both physical and logical attacks._
 
-| `SEC_002`  | MUST manage a security life cycle.
+| `SEC_002`  | The hardware RoT MUST manage a security life cycle.
 2+| _A security life cycle reflects the trustworthiness of a system during its
      lifetime and reflects the life cycle state of hardware provisioned assets.
      The minimum security life cycle includes the following states:
