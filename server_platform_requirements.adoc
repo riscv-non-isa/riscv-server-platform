@@ -30,6 +30,8 @@ in this section apply solely to harts in the application processors of the SoC.
 2+| _Many of these mandated extensions are optional in the RVA23 ISA profile.
      This requirement is placed here as a placeholder. These mandates may be
      moved into a new ISA profile specification._
+2+| _The motivation for requiring Zkr is that servers typically need access
+     to an entropy source on boot._
 
 | `RVA_021` a| The RISC-V application processor harts in the SoC MUST support
              the Ssctr extension with a CTR depth value of 32. Additional CTR
@@ -131,7 +133,6 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 
              * 64-bit addressing (S64A = '1').
 | `HPER_080`   | A Trusted Platform Module (TPM) MUST be implemented and adhere to the TPM 2.0 Library specification cite:[TPM20].
-| `HPER_090` | MUST include a hardware RNG.
 |===
 
 == Server Platform Firmware Requirements
