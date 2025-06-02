@@ -74,9 +74,7 @@ in this section apply solely to harts in the application processors of the SoC.
              * At least one icount trigger to support single stepping.
              * At least one interrupt trigger.
              * At least one exception trigger.
-             * Trigger filtering using `hcontext`.
              * Trigger filtering using all VMID encodings supported by the hart.
-             * Trigger filtering using `scontext`.
              * Trigger filtering using all ASID encodings supported by the hart.
 2+| _The motivation for including at least four instruction address and four
      load/store address match triggers originates from prior experience with
