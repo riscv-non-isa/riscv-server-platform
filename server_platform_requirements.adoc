@@ -2,9 +2,9 @@
 
 === RISC-V Harts
 
-A RISC-V server platform includes a RISC-V application processor and may include
-one or more service processors. These service processors may provide services such
-as security and power management to software executing on the application
+A RISC-V server platform includes one or more RISC-V application processors and may
+include one or more service processors. These service processors may provide services
+such as security and power management to software executing on the application
 processors, and they may themselves implement the RISC-V ISA. The requirements
 in this section apply solely to harts in the application processors of the SoC.
 
@@ -93,7 +93,7 @@ in this section apply solely to harts in the application processors of the SoC.
 [%header, cols="5,25"]
 |===
 | ID#      ^| Requirement
-| `HSOC_010`  | The RISC-V SoC MUST comply with the Server SoC specification cite:[ServerSoC].
+| `HSOC_010`  | RISC-V SoCs MUST comply with the Server SoC specification cite:[ServerSoC].
 | `HSOC_020`  | All peripherals that are intended for assignment to a VM or a user space device driver MUST be
 PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[ServerSoC], Section 2.4).
 |===
@@ -138,7 +138,7 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 [%header, cols="5,25"]
 |===
 | ID#      ^| Requirement
-| `FIRM_010`  | The RISC-V SoC MUST comply with the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
+| `FIRM_010`  | RISC-V SoCs MUST comply with the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
 | `FIRM_012`  | If the software running on the application processor supports RAS functionality for RISC-V components, the firmware MUST implement the SBI Supervisor Software Events (SSE) extension.
 | `FIRM_020`  | MUST include configuration infrastructure, supporting relevant HII protocols (cite:[UEFI] Section 2.6.2)
 | `FIRM_030`  | SHOULD include the ability to boot from disk (block) device, supporting relevant protocols (cite:[UEFI] Section 2.6.2)
