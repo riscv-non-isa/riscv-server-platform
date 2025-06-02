@@ -158,7 +158,7 @@ Security requirements straddle hardware and firmware.
 [%header, cols="5,25"]
 |===
 | ID#      ^| Requirement
-| `SEC_010`  | MUST implement a hardware root of trust (RoT).
+| `SEC_001`  | MUST implement a hardware root of trust (RoT).
 2+| _A root of trust (RoT) is the foundation on which all secure operations of a
      system depend. A RoT is typically a combination of a minimal amount of
      hardware and software that has to be implicitly trusted by all system
@@ -173,7 +173,7 @@ Security requirements straddle hardware and firmware.
     Hart to a dedicated and possibly isolated trusted subsystem, which can provide
     stronger protection against physical and logical attacks._
 
-| `SEC_020`  | MUST manage a security life cycle.
+| `SEC_002`  | MUST manage a security life cycle.
 2+| _A security life cycle reflects the trustworthiness of a system during its
      lifetime and reflects the life cycle state of hardware provisioned assets.
      The minimum security life cycle includes the following states:
@@ -191,7 +191,7 @@ Security requirements straddle hardware and firmware.
        and revoked before entering this state. This includes derived assets such
        as attestation keys._
 
-| `SEC_030`  | MUST implement a secure identity and must support platform attestation.
+| `SEC_003`  | MUST implement a secure identity and must support platform attestation.
 2+| _A secure identity is an element capable of generating a cryptographic
      signature which can be verified by a remote party. The secure identity
      identifies the immutable part of the secure platform - immutable hardware,
@@ -202,15 +202,14 @@ Security requirements straddle hardware and firmware.
      trustworthiness of the platform before submitting assets to it. The
      platform attestation must be signed by a hardware RoT using a hardware
      provisioned secure identity._
-
-| `SEC_040`  | MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32)
-| `SEC_050`  | It MUST be possible for a physically present user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
-| `SEC_060`  | It MUST be possible for a physically present user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
-| `SEC_070`  | MUST back the UEFI Authenticated Variables implementation with
+| `SEC_010`  | MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32)
+| `SEC_011`  | It MUST be possible for a physically present user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
+| `SEC_012`  | It MUST be possible for a physically present user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
+| `SEC_020`  | MUST back the UEFI Authenticated Variables implementation with
              a mechanism that cannot be accessed or tampered by an unauthorized
              software or hardware agent.
-| `SEC_080`  | MUST implement in-band firmare updates as per cite:[BRS].
-| `SEC_090`  | Firmware update payloads MUST be digitally signed.
-| `SEC_100`  | Firmware update signatures MUST be validated before being applied.
-| `SEC_110`  | It MUST not be possible to bypass secure boot, authentication or digital signature failures.
+| `SEC_030`  | MUST implement in-band firmare updates as per cite:[BRS].
+| `SEC_040`  | Firmware update payloads MUST be digitally signed.
+| `SEC_050`  | Firmware update signatures MUST be validated before being applied.
+| `SEC_060`  | It MUST not be possible to bypass secure boot, authentication or digital signature failures.
 |===
