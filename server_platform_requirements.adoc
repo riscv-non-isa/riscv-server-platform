@@ -142,17 +142,16 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | ID#      ^| Requirement
 | `FIRM_010`  | RISC-V SoCs MUST comply with the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
 | `FIRM_012`  | If the software running on the application processor supports RAS functionality for RISC-V components, the firmware MUST implement the SBI Supervisor Software Events (SSE) extension.
-| `FIRM_020`  | MUST include configuration infrastructure, supporting relevant HII protocols (cite:[UEFI] Section 2.6.2)
-| `FIRM_030`  | SHOULD include the ability to boot from disk (block) device, supporting relevant protocols (cite:[UEFI] Section 2.6.2)
-| `FIRM_040`  | The firmware SHOULD include the ability to perform a TFTP-based boot from a network device.
+| `FIRM_020`  | The firmware MUST include configuration infrastructure, supporting relevant HII protocols (cite:[UEFI_platform_specific] number 2).
+| `FIRM_030`  | The firmware SHOULD include the ability to boot from disk (block) device, supporting relevant protocols (cite:[UEFI_platform_specific] number 5).
+| `FIRM_040`  | The firmware SHOULD include the ability to perform a TFTP-based boot from a network device (cite:[UEFI_platform_specific] number 6).
 | `FIRM_041`  | The firmware SHOULD include the ability to validate boot images.
-    image received through a network device, supporting relevant protocols (cite:[UEFI] Section 2.6.2).
-| `FIRM_050`  | SHOULD support UEFI general purpose network applications, including IPv4, IPv6, DNS, TLS, IPSec and VLAN features, supporting relevant protocols (cite:[UEFI] Section 2.6.2).
-| `FIRM_060`  | MUST support option ROMs from devices not permanently attached to the platform, including the ability to authenticate these option ROMs (cite:[UEFI] Section 2.6.2).
-| `FIRM_070` | SHOULD support 64-bit Intel architecture (aka x64, aka AMD64) UEFI option ROM drivers for improved compatiblity with third-party IHV ecosystem.
-| `FIRM_080` | SHOULD support the ability to perform a HTTP-based boot from a network device, including support for HTTPS and DNS, supporting relevant HII protocols (cite:[UEFI] Section 2.6.2).
-| `FIRM_090` | MUST support software that runs from EFI firmware to install Load Option Variables (+Boot####, or Driver####, or SysPrep####+) consistent with cite:[UEFI] Section 2.6.2.
-| `FIRM_100` | MUST support software that runs from EFI firmware to register for notifications when a call to ResetSystem is called, consistent with cite:[UEFI] Section 2.6.2.
+| `FIRM_050`  | The firmware SHOULD support UEFI general purpose network applications, including IPv4, IPv6, DNS, TLS, IPSec and VLAN features, supporting relevant protocols (cite:[UEFI_platform_specific] number 7).
+| `FIRM_060`  | The firmware MUST support option ROMs from devices not permanently attached to the platform, including the ability to authenticate these option ROMs (cite:[UEFI_platform_specific] number 19).
+| `FIRM_070` | The firmware SHOULD support 64-bit Intel architecture (aka x64, aka AMD64) UEFI option ROM drivers for additional compatibility with the third-party IHV ecosystem.
+| `FIRM_080` | The firmware SHOULD support the ability to perform a HTTP-based boot from a network device, including support for HTTPS and DNS, supporting relevant HII protocols (cite:[UEFI_platform_specific] number 22).
+| `FIRM_090` | The firmware MUST support software that runs from EFI firmware to install Load Option Variables (+Boot####, or Driver####, or SysPrep####+) consistent with cite:[UEFI_platform_specific] number 27.
+| `FIRM_100` | The firmware MUST support software that runs from EFI firmware to register for notifications when a call to ResetSystem is called, consistent with cite:[UEFI_platform_specific] number 32.
 | `FIRM_110` | If an IOMMU is present, then it MUST be described using the RIMT ACPI table cite:[RIMT].
 |===
 
@@ -164,13 +163,13 @@ Security requirements straddle hardware and firmware.
 [%header, cols="5,25"]
 |===
 | ID#      ^| Requirement
-| `SEC_010`  | MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32)
+| `SEC_010`  | The firmware MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32, "Secure Boot and Driver Signing")
 | `SEC_011`  | It MUST be possible for a physically present user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
 | `SEC_012`  | It MUST be possible for a physically present user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
-| `SEC_020`  | MUST back the UEFI Authenticated Variables implementation with
+| `SEC_020`  | The platform and firmware MUST back the UEFI Authenticated Variables implementation with
              a mechanism that cannot be accessed or tampered by an unauthorized
              software or hardware agent.
-| `SEC_030`  | MUST implement in-band firmare updates as per cite:[BRS].
+| `SEC_030`  | The firmware MUST implement in-band firmware updates as per cite:[BRS].
 | `SEC_040`  | Firmware update payloads MUST be digitally signed.
 | `SEC_050`  | Firmware update signatures MUST be validated before being applied.
 | `SEC_060`  | It MUST NOT be possible to bypass secure boot, authentication or digital signature failures.
