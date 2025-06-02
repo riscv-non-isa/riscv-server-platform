@@ -202,15 +202,17 @@ Security requirements straddle hardware and firmware.
 | `SEC_003`  | The hardware RoT MUST implement a secure identity and MUST support
                platform attestation.
 2+| _A secure identity is an element capable of generating a cryptographic
-     signature which can be verified by a remote party. The secure identity
-     identifies the immutable part of the secure platform - immutable hardware,
-     configurations, and firmware. Immutable components cannot change after
-     completion of security provisioning.
+     signature that can be verified by a remote party. It represents the immutable
+     part of the secure platform--such as immutable hardware, configurations, and
+     firmware. Immutable components cannot be modified after the completion of
+     security provisioning.
 
-     Platform attestation allows a remote relying party to determine the
-     trustworthiness of the platform before submitting assets to it. The
-     platform attestation must be signed by a hardware RoT using a hardware
-     provisioned secure identity._
+     Platform attestation enables a relying party to determine the
+     trustworthiness of the platform before submitting sensitive assets to it.
+     The attestation MUST be signed by the hardware RoT using a hardware-provisioned
+     secure identity or a cryptographic key derived in a verifiable manner from that
+     identity._
+
 | `SEC_010`  | MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32)
 | `SEC_011`  | It MUST be possible for a physically present user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
 | `SEC_012`  | It MUST be possible for a physically present user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
