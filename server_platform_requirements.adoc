@@ -151,6 +151,9 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `FIRM_090` | The firmware MUST support software that runs from EFI firmware to install Load Option Variables (+Boot####, or Driver####, or SysPrep####+) consistent with cite:[UEFI_platform_specific] number 27.
 | `FIRM_100` | The firmware MUST support software that runs from EFI firmware to register for notifications when a call to ResetSystem is called, consistent with cite:[UEFI_platform_specific] number 32.
 | `FIRM_110` | If an IOMMU is present, then it MUST be described using the RIMT ACPI table cite:[RIMT].
+| `FIRM_120` | If the platform implements forward-edge control-flow integrity, the runtime services must be compiled to support it.
+2+| _The platform SHOULD implement the SBI FWFT LANDING_PAD interface._
+| `FIRM_130` | The support for forward-edge control-flow integrity in runtime services MUST be sigaled by the EFI_MEMORY_ATTRIBUTES_FLAGS_RT_FORWARD_CONTROL_FLOW_GUARD flag (cite:[UEFI] Section 4.6.3 EFI_MEMORY_ATTRIBUTES_TABLE).
 |===
 
 == Server Platform Security Rules
