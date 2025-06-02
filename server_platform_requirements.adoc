@@ -35,8 +35,11 @@ in this section apply solely to harts in the application processors of the SoC.
              the Ssctr extension with a CTR depth value of 32. Additional CTR
              depth values MAY be supported.
 
-2+| _Mandating implementation of CTR depth of 32 provides a common CTR depth
-     across implementations for purposes of VM migration._
+2+| _The motivation for requiring Ssctr is that similar capabilities from other
+     architectures are used by profile-guided optimization (PGO) tools to improve
+     builds for workloads typical of servers. Mandating implementation of CTR
+     depth of 32 provides a common CTR depth across implementations for purposes
+     of VM migration._
 
 | `RVA_030`  | The ISA extensions and associated CSR field widths implemented by
              any of the RISC-V application processor harts in the SoC MUST be
