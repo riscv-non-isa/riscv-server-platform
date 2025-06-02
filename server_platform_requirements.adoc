@@ -135,7 +135,8 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `FIRM_012`  | If the software running on the application processor supports RAS functionality for RISC-V components, the firmware MUST implement the SBI Supervisor Software Events (SSE) extension.
 | `FIRM_020`  | MUST include configuration infrastructure, supporting relevant HII protocols (cite:[UEFI] Section 2.6.2)
 | `FIRM_030`  | SHOULD include the ability to boot from disk (block) device, supporting relevant protocols (cite:[UEFI] Section 2.6.2)
-| `FIRM_040`  | SHOULD include the ability to perform a TFTP-based boot from a network device and to validate a boot
+| `FIRM_040`  | The firmware SHOULD include the ability to perform a TFTP-based boot from a network device.
+| `FIRM_041`  | The firmware SHOULD include the ability to validate boot images.
     image received through a network device, supporting relevant protocols (cite:[UEFI] Section 2.6.2).
 | `FIRM_050`  | SHOULD support UEFI general purpose network applications, including IPv4, IPv6, DNS, TLS, IPSec and VLAN features, supporting relevant protocols (cite:[UEFI] Section 2.6.2).
 | `FIRM_060`  | MUST support option ROMs from devices not permanently attached to the platform, including the ability to authenticate these option ROMs (cite:[UEFI] Section 2.6.2).
