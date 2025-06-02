@@ -24,7 +24,6 @@ in this section apply solely to harts in the application processors of the SoC.
              * Sdext
              * Zkr
              * Ssccfg
-             * Sscsrind
              * Ssstrict
              * Ssaia
 
