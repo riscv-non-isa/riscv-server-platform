@@ -175,25 +175,32 @@ Security requirements straddle hardware and firmware.
      processor hart to a dedicated and isolated trusted subsystem, which
      provides stronger protection against both physical and logical attacks._
 
-| `SEC_002`  | The hardware RoT MUST manage a security life cycle.
-2+| _A security life cycle reflects the trustworthiness of a system during its
-     lifetime and reflects the life cycle state of hardware provisioned assets.
-     The minimum security life cycle includes the following states:
+| `SEC_002`  | The hardware RoT MUST manage a security lifecycle.
+2+| _A security lifecycle reflects the trustworthiness of a system throughout
+     its lifetime and indicates the lifecycle state of hardware-provisioned
+     assets.
 
-     * Manufacture - The system may not yet be locked down and has no hardware
-       provisioned assets.
-     * Security provisioning - The process of provisioning hardware provisioned
+     The minimum security lifecycle includes the following states:
+     * Manufacture – The system may not yet be locked down and contains no
+       hardware-provisioned assets.
+
+     * Security Provisioning – The process of provisioning hardware-provisioned
        assets.
-     * Secured - hardware provisioned assets are locked (immutable), only
-       authorized software can be used, and revealing debug is not enabled.
-     * Recoverable debug - part of the system is in a revealing debug state.
-       At least the RoT is not compromised and hardware provisioned secrets
-       remain protected.
-     * Terminated - Hardware provisioned assets are made permanently inaccessible
-       and revoked before entering this state. This includes derived assets such
-       as attestation keys._
 
-| `SEC_003`  | MUST implement a secure identity and must support platform attestation.
+     * Secured – Hardware-provisioned assets are locked (immutable); only
+       authorized software may be executed, and revealing debug capabilities
+       are disabled.
+
+     * Recoverable Debug – Part of the system is in a revealing debug state.
+       The RoT remains uncompromised, and hardware-provisioned secrets
+       remain protected.
+
+     * Terminated – Hardware-provisioned assets are permanently inaccessible and
+       revoked prior to entering this state. This includes derived assets such as
+       attestation keys._
+
+| `SEC_003`  | The hardware RoT MUST implement a secure identity and MUST support
+               platform attestation.
 2+| _A secure identity is an element capable of generating a cryptographic
      signature which can be verified by a remote party. The secure identity
      identifies the immutable part of the secure platform - immutable hardware,
