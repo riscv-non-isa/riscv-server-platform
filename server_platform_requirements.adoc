@@ -92,7 +92,7 @@ in this section apply solely to harts in the application processors of the SoC.
 [%header, cols="5,25"]
 |===
 | ID#      ^| Rule
-| `HSOC_010`  | RISC-V SoCs MUST comply with the Server SoC specification cite:[ServerSoC].
+| `HSOC_010`  | RISC-V SoCs MUST comply with the Server SoC v1.0 specification cite:[ServerSoC].
 | `HSOC_020`  | All peripherals that are intended for assignment to a VM or a user space device driver MUST be
 PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[ServerSoC], Section 2.4).
 |===
@@ -143,8 +143,8 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 [%header, cols="5,25"]
 |===
 | ID#      ^| Rule
-| `FIRM_010`  | RISC-V SoCs MUST comply with the BRS-I recipe described in the Boot and Runtime Service specification cite:[BRS].
-| `FIRM_012`  | If the software running on the application processor supports RAS functionality for RISC-V components, the firmware MUST implement the SBI Supervisor Software Events (SSE) extension.
+| `FIRM_010`  | RISC-V SoCs MUST comply with the BRS-I recipe described in the Boot and Runtime Service v1.0 specification cite:[BRS].
+| `FIRM_012`  | If the software running on the application processor supports RAS functionality for RISC-V components, the firmware MUST implement the SBI v3.0 Supervisor Software Events (SSE) extension cite:[SBI].
 | `FIRM_020`  | The firmware MUST include configuration infrastructure, supporting relevant HII protocols (cite:[UEFI_platform_specific] number 2).
 | `FIRM_030`  | The firmware SHOULD include the ability to boot from disk (block) device, supporting relevant protocols (cite:[UEFI_platform_specific] number 5).
 | `FIRM_040`  | The firmware SHOULD include the ability to perform a TFTP-based boot from a network device (cite:[UEFI_platform_specific] number 6).
