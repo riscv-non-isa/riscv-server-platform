@@ -20,20 +20,20 @@ in this section apply solely to harts in the application processors of the SoC.
 
              * Sv48
              * Svadu
-             * Sdtrig
-             * Sdext
+             * Sdtrig cite:[debug]
+             * Sdext cite:[debug]
              * Zkr
              * Ssccfg
-             * Ssstrict
-             * Ssaia
+             * Ssstrict cite:[RVA23]
+             * Ssaia cite:[AIA]
 
 2+| _These mandates may be moved into a new ISA profile specification. The
      motivation for requiring Zkr is that servers typically need access
      to an entropy source at boot time._
 
 | `RVA_021` a| The RISC-V application processor harts in the SoC MUST support
-             the Ssctr extension with a CTR depth value of 32. Additional CTR
-             depth values MAY be supported.
+             the Ssctr extension (cite:[CTR]) with a CTR depth value of 32.
+             Additional CTR depth values MAY be supported.
 
 2+| _The motivation for requiring Ssctr is that similar capabilities from other
      architectures are used by profile-guided optimization (PGO) tools to improve
