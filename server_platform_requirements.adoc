@@ -144,6 +144,8 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 |===
 | ID#      ^| Rule
 | `FIRM_010`  | RISC-V SoCs MUST comply with the BRS-I recipe described in the Boot and Runtime Service v1.0 specification cite:[BRS].
+| `FIRM_011`  | The firmware MUST implement the SBI v3.0 Debug Triggers (DBTR) extension cite:[SBI].
+2+| _Supervisor software needs DBTR in order to utilize Sdtrig, which is mandated by rule `RVA_020`._
 | `FIRM_012`  | If the software running on the application processor supports RAS functionality for RISC-V components, the firmware MUST implement the SBI v3.0 Supervisor Software Events (SSE) extension cite:[SBI].
 | `FIRM_020`  | The firmware MUST include configuration infrastructure, supporting relevant HII protocols (cite:[UEFI_platform_specific] number 2).
 | `FIRM_030`  | The firmware SHOULD include the ability to boot from disk (block) device, supporting relevant protocols (cite:[UEFI_platform_specific] number 5).
