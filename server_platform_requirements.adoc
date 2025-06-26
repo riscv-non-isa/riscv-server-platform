@@ -13,7 +13,7 @@ in this section apply solely to harts in the application processors of the SoC.
 |===
 | ID#     ^| Rule
 | `RVA_010`  | The RISC-V application processor harts in the SoC MUST support the
-             RVA23 ISA profile cite:[RVA23].
+             RVA23S64 ISA profile cite:[RVA23].
 
 | `RVA_020` a| The RISC-V application processor harts in the SoC MUST support the
              following extensions:
@@ -44,8 +44,8 @@ in this section apply solely to harts in the application processors of the SoC.
 | `RVA_030`  | The ISA extensions and associated CSR field widths implemented by
              any of the RISC-V application processor harts in the SoC MUST be
              identical within a supervisor execution environment (SEE).
-2+| _The RVA23 profile supports a set of optional extensions. The set of
-     optional extensions implemented by the harts must be identical. Where the
+2+| _The RVA23 S64 and U64 profiles support a set of optional extensions. The set
+     of optional extensions implemented by the harts must be identical. Where the
      extension supports optionality in the form of field widths (e.g.,
      ASIDLEN, VLEN, allowed vstart values, physical address width, debug
      triggers, cache-block size, etc.), the implementation of these must also be
