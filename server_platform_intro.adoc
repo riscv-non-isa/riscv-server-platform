@@ -108,6 +108,7 @@ Most terminology has the standard RISC-V meaning. This table captures other term
 | ID               | Identifier.
 | OS               | Operating System or Hypervisor.
 | SBI              | RISC-V Supervisor Binary Interface Specification cite:[SBI].
+| SEE              | Supervisor Execution Environment. The environment in which supervisor-level software (such as an OS) executes.
 | SoC              | System on a chip, also referred as system-on-a-chip and
                      system-on-chip.
 | UEFI             | Unified Extensible Firmware Interface cite:[UEFI].
