@@ -232,13 +232,13 @@ Security rules straddle hardware and firmware.
      identity._
 
 | `SEC_010`  | The firmware MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32, "Secure Boot and Driver Signing")
-| `SEC_011`  | It MUST be possible for a physically present user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
-| `SEC_012`  | It MUST be possible for a physically present user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
+| `SEC_011`  | For systems that are not intended to be locked down, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
+| `SEC_012`  | For systems that are not intended to be locked down, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
 | `SEC_020`  | The platform and firmware MUST back the UEFI Authenticated Variables implementation with
              a mechanism that cannot be accessed or tampered by an unauthorized
              software or hardware agent.
 | `SEC_030`  | The firmware MUST implement in-band firmware updates as per cite:[BRS].
 | `SEC_040`  | Firmware update payloads MUST be digitally signed.
 | `SEC_050`  | Firmware update signatures MUST be validated before being applied.
-| `SEC_060`  | It MUST NOT be possible to bypass secure boot, authentication or digital signature failures.
+| `SEC_060`  | It MUST NOT be possible to bypass secure boot, authentication or digital signature failures, except as specified in SEC_011 and SEC_012.
 |===
