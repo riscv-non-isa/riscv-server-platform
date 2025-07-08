@@ -232,8 +232,19 @@ Security rules straddle hardware and firmware.
      identity._
 
 | `SEC_010`  | The firmware MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32, "Secure Boot and Driver Signing")
-| `SEC_011`  | For systems that are not intended to be locked down, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
-| `SEC_012`  | For systems that are not intended to be locked down, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
+| `SEC_011`  | For systems that are not intended to be locked down, or that are intended to be locked down but have not been locked down yet, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
+| `SEC_012`  | For systems that are not intended to be locked down, or that are intended to be locked down but have not been locked down yet, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
+2+| _The term "locked down" refers to the (optional) ability to prevent the
+    Secure Boot configuration from being modified further once the desired
+    state has been reached. This could be implemented, for example, via an
+    eFuse.
+
+    Note that the "locked down" state is distinct from the "Deployed Mode"
+    Secure Boot state defined in the UEFI spec.
+
+    Being able to prevent even a physically present user from altering the
+    Secure Boot configuration can be useful in the context of highly regulated
+    industries or government bodies._
 | `SEC_020`  | The platform and firmware MUST back the UEFI Authenticated Variables implementation with
              a mechanism that cannot be accessed or tampered by an unauthorized
              software or hardware agent.
