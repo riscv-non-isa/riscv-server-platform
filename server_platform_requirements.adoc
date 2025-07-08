@@ -154,6 +154,12 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `FIRM_050`  | The firmware SHOULD support UEFI general purpose network applications, including IPv4, IPv6, DNS, TLS, IPSec and VLAN features, supporting relevant protocols (cite:[UEFI_platform_specific] number 7).
 | `FIRM_060`  | The firmware MUST support option ROMs from devices not permanently attached to the platform, including the ability to authenticate these option ROMs (cite:[UEFI_platform_specific] number 19).
 | `FIRM_070` | The firmware SHOULD support 64-bit Intel architecture (aka x64, aka AMD64) UEFI option ROM drivers for additional compatibility with the third-party IHV ecosystem.
+2+| _Since expansion cards for GPUs, High Speed NICs, etc. move faster than most platform vendors can integrate drivers into their platform firmware package
+    (as well as those drivers making said firmware images extremely large), supporting UEFI Option ROM Drivers in x86_64 via emulation enables more hardware
+    without having to wait for the platform vendor to port a drvier and ship it natively into their firmware. This is how Aarch64 systems solve the problem 
+    of no native drivers for the similar devices. The use of EFI Byte Code (EBC) is typically not used by hardware vendors because the compilers have not been
+    available for some time and no open source compilers exist. Most add-in boards only ship x86_64 COFF EFI Drivers which are supported by 
+    https://github.com/tianocore/edk2-non-osi/tree/master/Emulator/X86EmulatorDxe if it's included in the EDK2 build._
 | `FIRM_080` | The firmware SHOULD support the ability to perform a HTTP-based boot from a network device, including support for HTTPS and DNS, supporting relevant HII protocols (cite:[UEFI_platform_specific] number 22).
 | `FIRM_090` | The firmware MUST support software that runs from EFI firmware to install Load Option Variables (+Boot####, or Driver####, or SysPrep####+) consistent with cite:[UEFI_platform_specific] number 27.
 | `FIRM_100` | The firmware MUST support software that runs from EFI firmware to register for notifications when a call to ResetSystem is called, consistent with cite:[UEFI_platform_specific] number 32.
