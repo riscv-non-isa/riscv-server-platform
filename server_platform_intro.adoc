@@ -36,7 +36,10 @@ manageability specifications like MCTP, PLDM, Redfish, and IPMI for functions su
 as power management, telemetry, debug, and provisioning. The platform security model
 includes guidelines and requirements for aspects such as debug authorization,
 secure/measured boot, firmware updates, firmware resilience, and confidential
-computing, among others.
+computing, among others.  A primary goal of this specification is to enable
+interoperability between conforming servers and the large ecosystem of
+portable system software, available from a variety of sources, such that
+conforming servers are not limited to any single system software distribution.
 
 The platform firmware, typically operating at privilege level M, is
 considered part of the platform and is usually expected to be customized and
