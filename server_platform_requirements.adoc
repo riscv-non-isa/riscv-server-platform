@@ -152,7 +152,7 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `FIRM_040`  | The firmware SHOULD include the ability to perform a TFTP-based boot from a network device (cite:[UEFI_platform_specific] number 6).
 | `FIRM_041`  | The firmware SHOULD include the ability to validate boot images.
 | `FIRM_050`  | The firmware SHOULD support UEFI general purpose network applications, including IPv4, IPv6, DNS, TLS, IPSec and VLAN features, supporting relevant protocols (cite:[UEFI_platform_specific] number 7).
-| `FIRM_060`  | The firmware MUST support option ROMs from devices not permanently attached to the platform, including the ability to authenticate these option ROMs (cite:[UEFI_platform_specific] number 19).
+| `FIRM_060`  | The firmware MUST support RISC-V option ROMs, compiled for the RVA20 profile or a later profile (cite:[BRS] BRS-I Recipe), from devices not permanently attached to the platform, including the ability to authenticate these (cite:[UEFI_platform_specific] number 19).
 | `FIRM_070` | The firmware SHOULD support 64-bit Intel architecture (aka x64, aka AMD64) UEFI option ROM drivers for additional compatibility with the third-party IHV ecosystem.
 2+| _Since expansion cards for GPUs, High Speed NICs, etc. move faster than most platform vendors can integrate drivers into their platform firmware package
     (as well as those drivers making said firmware images extremely large), supporting UEFI Option ROM Drivers in x86_64 via emulation enables more hardware
