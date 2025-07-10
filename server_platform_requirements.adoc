@@ -129,6 +129,13 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `HPER_060`  a| Implemented AHCI controllers MUST support:
 
              * 64-bit addressing (S64A = '1').
+| `HPER_070`   | A battery-backed Real Time Clock (the "Server Platform RTC") MUST be implemented for use by platform firmware for UEFI certificate validity checking.  This RTC MAY optionally be used by other system functions.
+| `HPER_075`   | If the operating system does not have access to its own OS-managed Real Time Clock, the Server Platform RTC SHOULD be exposed to the operating system for clock read access via EFI_GET_TIME, and, if the system security profile allows the operating system to change the Server Platform RTC clock, for clock setting access via EFI_SET_TIME.
+2+| _Allowing operating systems to change the time and date used for UEFI
+     certificate validity checks may have unexpected consequences, including,
+     for example, disrupting certificate verification in platform firmware,
+     or affecting system functions other than the OS that rely on the Server
+     Platform RTC._
 | `HPER_080`   | A Trusted Platform Module (TPM) MUST be implemented and adhere to the TPM 2.0 Library specification cite:[TPM20].
 2+| _It is common for secure systems to support multiple trust chains with their
      own root of trust. For example, a TPM can be secondary root of trust for
