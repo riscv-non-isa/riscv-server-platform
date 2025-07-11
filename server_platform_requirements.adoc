@@ -31,7 +31,7 @@ in this section apply solely to harts in the application processors of the SoC.
      motivation for requiring Zkr is that servers typically need access
      to an entropy source at boot time._
 
-| `RVA_021` a| The RISC-V application processor harts in the SoC MUST support
+| `RVA_030` a| The RISC-V application processor harts in the SoC MUST support
              the Ssctr extension (cite:[CTR]) with a CTR depth value of 32.
              Additional CTR depth values MAY be supported.
 
@@ -41,7 +41,7 @@ in this section apply solely to harts in the application processors of the SoC.
      depth of 32 provides a common CTR depth across implementations for purposes
      of VM migration._
 
-| `RVA_030`  | The ISA extensions and associated CSR field widths implemented by
+| `RVA_040`  | The ISA extensions and associated CSR field widths implemented by
              any of the RISC-V application processor harts in the SoC MUST be
              identical within a supervisor execution environment (SEE).
 2+| _The RVA23 S64 and U64 profiles support a set of optional extensions. The set
@@ -53,7 +53,7 @@ in this section apply solely to harts in the application processors of the SoC.
      environment allows system software to migrate tasks among the harts without
      constraints._
 
-| `RVA_040`  | The RISC-V application processor harts in the SoC MAY support
+| `RVA_050`  | The RISC-V application processor harts in the SoC MAY support
              different power and performance characteristics but MUST be
              otherwise indistinguishable from each other from a software
              execution viewpoint within a supervisor execution environment (SEE).
@@ -61,11 +61,11 @@ in this section apply solely to harts in the application processors of the SoC.
      software execution viewpoint allows system software to migrate tasks among the
      harts without constraints._
 
-| `RVA_050` a| The RISC-V application processor hart MUST support:
+| `RVA_060` a| The RISC-V application processor hart MUST support:
 
              * Single stepping using the step bit in  `dcsr`
 
-| `RVA_060` a| The RISC-V application processor hart MUST support:
+| `RVA_070` a| The RISC-V application processor hart MUST support:
 
              * At least 4 instruction address match triggers.
              * At least 4 load/store address match triggers.
@@ -78,7 +78,7 @@ in this section apply solely to harts in the application processors of the SoC.
      load/store address match triggers originates from prior experience with
      x86 servers._
 
-| `RVA_070`  | The RISC-V application processor MUST support at least 6 hardware
+| `RVA_080`  | The RISC-V application processor MUST support at least 6 hardware
              performance counters defined by the Zihpm extension in addition to
              the three counters defined by the Zicntr extension.
 2+| _The motivation for including at least six performance counters, in addition
@@ -130,13 +130,13 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 
              * 64-bit addressing (S64A = '1').
 | `HPER_070`   | A battery-backed Real Time Clock (the "Server Platform RTC") MUST be implemented for use by platform firmware for UEFI certificate validity checking.  This RTC MAY optionally be used by other system functions.
-| `HPER_075`   | If the operating system does not have access to its own OS-managed Real Time Clock, the Server Platform RTC SHOULD be exposed to the operating system for clock read access via EFI_GET_TIME, and, if the system security profile allows the operating system to change the Server Platform RTC clock, for clock setting access via EFI_SET_TIME.
+| `HPER_080`   | If the operating system does not have access to its own OS-managed Real Time Clock, the Server Platform RTC SHOULD be exposed to the operating system for clock read access via EFI_GET_TIME, and, if the system security profile allows the operating system to change the Server Platform RTC clock, for clock setting access via EFI_SET_TIME.
 2+| _Allowing operating systems to change the time and date used for UEFI
      certificate validity checks may have unexpected consequences, including,
      for example, disrupting certificate verification in platform firmware,
      or affecting system functions other than the OS that rely on the Server
      Platform RTC._
-| `HPER_080`   | A Trusted Platform Module (TPM) MUST be implemented and adhere to the TPM 2.0 Library specification cite:[TPM20].
+| `HPER_090`   | A Trusted Platform Module (TPM) MUST be implemented and adhere to the TPM 2.0 Library specification cite:[TPM20].
 2+| _It is common for secure systems to support multiple trust chains with their
      own root of trust. For example, a TPM can be secondary root of trust for
      UEFI boot flows while a hardware RoT is the root of trust for platform
@@ -151,30 +151,30 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 |===
 | ID#      ^| Rule
 | `FIRM_010`  | RISC-V SoCs MUST comply with the BRS-I recipe described in the Boot and Runtime Service v1.0 specification cite:[BRS].
-| `FIRM_011`  | The firmware MUST implement the SBI v3.0 Debug Triggers (DBTR) extension cite:[SBI].
+| `FIRM_020`  | The firmware MUST implement the SBI v3.0 Debug Triggers (DBTR) extension cite:[SBI].
 2+| _Supervisor software needs DBTR in order to utilize Sdtrig, which is mandated by rule `RVA_020`._
-| `FIRM_012`  | If the software running on the application processor supports RAS functionality for RISC-V components, the firmware MUST implement the SBI v3.0 Supervisor Software Events (SSE) extension cite:[SBI].
-| `FIRM_020`  | The firmware MUST include configuration infrastructure, supporting relevant HII protocols (cite:[UEFI_platform_specific] number 2).
-| `FIRM_030`  | The firmware SHOULD include the ability to boot from disk (block) device, supporting relevant protocols (cite:[UEFI_platform_specific] number 5).
-| `FIRM_040`  | The firmware SHOULD include the ability to perform a TFTP-based boot from a network device (cite:[UEFI_platform_specific] number 6).
-| `FIRM_041`  | The firmware SHOULD include the ability to validate boot images.
-| `FIRM_050`  | The firmware SHOULD support UEFI general purpose network applications, including IPv4, IPv6, DNS, TLS, IPSec and VLAN features, supporting relevant protocols (cite:[UEFI_platform_specific] number 7).
-| `FIRM_060`  | The firmware MUST support RISC-V option ROMs, compiled for the RVA20 profile or a later profile (cite:[BRS] BRS-I Recipe), from devices not permanently attached to the platform, including the ability to authenticate these (cite:[UEFI_platform_specific] number 19).
-| `FIRM_070` | The firmware SHOULD support 64-bit Intel architecture (aka x64, aka AMD64) UEFI option ROM drivers for additional compatibility with the third-party IHV ecosystem.
+| `FIRM_030`  | If the software running on the application processor supports RAS functionality for RISC-V components, the firmware MUST implement the SBI v3.0 Supervisor Software Events (SSE) extension cite:[SBI].
+| `FIRM_040`  | The firmware MUST include configuration infrastructure, supporting relevant HII protocols (cite:[UEFI_platform_specific] number 2).
+| `FIRM_050`  | The firmware SHOULD include the ability to boot from disk (block) device, supporting relevant protocols (cite:[UEFI_platform_specific] number 5).
+| `FIRM_060`  | The firmware SHOULD include the ability to perform a TFTP-based boot from a network device (cite:[UEFI_platform_specific] number 6).
+| `FIRM_070`  | The firmware SHOULD include the ability to validate boot images.
+| `FIRM_080`  | The firmware SHOULD support UEFI general purpose network applications, including IPv4, IPv6, DNS, TLS, IPSec and VLAN features, supporting relevant protocols (cite:[UEFI_platform_specific] number 7).
+| `FIRM_090`  | The firmware MUST support RISC-V option ROMs, compiled for the RVA20 profile or a later profile (cite:[BRS] BRS-I Recipe), from devices not permanently attached to the platform, including the ability to authenticate these (cite:[UEFI_platform_specific] number 19).
+| `FIRM_100` | The firmware SHOULD support 64-bit Intel architecture (aka x64, aka AMD64) UEFI option ROM drivers for additional compatibility with the third-party IHV ecosystem.
 2+| _Since expansion cards for GPUs, High Speed NICs, etc. move faster than most platform vendors can integrate drivers into their platform firmware package
     (as well as those drivers making said firmware images extremely large), supporting UEFI Option ROM Drivers in x86_64 via emulation enables more hardware
     without having to wait for the platform vendor to port a drvier and ship it natively into their firmware. This is how Aarch64 systems solve the problem 
     of no native drivers for the similar devices. The use of EFI Byte Code (EBC) is typically not used by hardware vendors because the compilers have not been
     available for some time and no open source compilers exist. Most add-in boards only ship x86_64 COFF EFI Drivers which are supported by 
     https://github.com/tianocore/edk2-non-osi/tree/master/Emulator/X86EmulatorDxe if it's included in the EDK2 build._
-| `FIRM_080` | The firmware SHOULD support the ability to perform a HTTP-based boot from a network device, including support for HTTPS and DNS, supporting relevant HII protocols (cite:[UEFI_platform_specific] number 22).
-| `FIRM_090` | The firmware MUST support software that runs from EFI firmware to install Load Option Variables (+Boot####, or Driver####, or SysPrep####+) consistent with cite:[UEFI_platform_specific] number 27.
-| `FIRM_100` | The firmware MUST support software that runs from EFI firmware to register for notifications when a call to ResetSystem is called, consistent with cite:[UEFI_platform_specific] number 32.
-| `FIRM_110` | If an IOMMU is present, then it MUST be described using the RIMT ACPI table cite:[RIMT].
-| `FIRM_120` | If the firmware allows forward-edge control-flow integrity (FCFI) to be enabled for the supervisor execution environment, the runtime services MUST be compiled to support FCFI.
+| `FIRM_110` | The firmware SHOULD support the ability to perform a HTTP-based boot from a network device, including support for HTTPS and DNS, supporting relevant HII protocols (cite:[UEFI_platform_specific] number 22).
+| `FIRM_120` | The firmware MUST support software that runs from EFI firmware to install Load Option Variables (+Boot####, or Driver####, or SysPrep####+) consistent with cite:[UEFI_platform_specific] number 27.
+| `FIRM_130` | The firmware MUST support software that runs from EFI firmware to register for notifications when a call to ResetSystem is called, consistent with cite:[UEFI_platform_specific] number 32.
+| `FIRM_140` | If an IOMMU is present, then it MUST be described using the RIMT ACPI table cite:[RIMT].
+| `FIRM_150` | If the firmware allows forward-edge control-flow integrity (FCFI) to be enabled for the supervisor execution environment, the runtime services MUST be compiled to support FCFI.
 2+| _The supervisor execution environment SHOULD enable FCFI through the SBI FWFT LANDING_PAD interface._
-| `FIRM_130` | The support for forward-edge control-flow integrity in runtime services MUST be signaled by the EFI_MEMORY_ATTRIBUTES_FLAGS_RT_FORWARD_CONTROL_FLOW_GUARD flag (cite:[UEFI] Section 4.6.3 EFI_MEMORY_ATTRIBUTES_TABLE).
-| `FIRM_140` | If the runtime services support forward-edge control-flow integrity, the instruction at the entry address of any runtime service MUST be a 4-byte aligned, unlabeled landing pad (`lpad 0`).
+| `FIRM_160` | The support for forward-edge control-flow integrity in runtime services MUST be signaled by the EFI_MEMORY_ATTRIBUTES_FLAGS_RT_FORWARD_CONTROL_FLOW_GUARD flag (cite:[UEFI] Section 4.6.3 EFI_MEMORY_ATTRIBUTES_TABLE).
+| `FIRM_170` | If the runtime services support forward-edge control-flow integrity, the instruction at the entry address of any runtime service MUST be a 4-byte aligned, unlabeled landing pad (`lpad 0`).
 |===
 
 == Server Platform Security Rules
@@ -185,7 +185,7 @@ Security rules straddle hardware and firmware.
 [%header, cols="5,25"]
 |===
 | ID#      ^| Rule
-| `SEC_001`  | The server platform MUST implement a hardware Root of Trust (RoT)
+| `SEC_010`  | The server platform MUST implement a hardware Root of Trust (RoT)
                (cite:[TCGGL]) as a dedicated and trusted subsystem, isolated
                from the application processor, to provide security-specific
                functions.
@@ -202,7 +202,7 @@ Security rules straddle hardware and firmware.
      processor hart to a dedicated and isolated trusted subsystem, which
      provides stronger protection against both physical and logical attacks._
 
-| `SEC_002`  | The hardware RoT MUST manage a security lifecycle.
+| `SEC_020`  | The hardware RoT MUST manage a security lifecycle.
 2+| _A security lifecycle reflects the trustworthiness of a system throughout
      its lifetime and indicates the lifecycle state of hardware-provisioned
      assets.
@@ -226,7 +226,7 @@ Security rules straddle hardware and firmware.
        revoked prior to entering this state. This includes derived assets such as
        attestation keys._
 
-| `SEC_003`  | The hardware RoT SHOULD implement a secure identity and SHOULD
+| `SEC_030`  | The hardware RoT SHOULD implement a secure identity and SHOULD
                support platform attestation.
 2+| _A **secure identity** is an element capable of generating a cryptographic
      signature that can be verified by a relying party. It represents the immutable
@@ -244,9 +244,9 @@ Security rules straddle hardware and firmware.
      secure identity or a cryptographic key derived in a verifiable manner from that
      identity._
 
-| `SEC_010`  | The firmware MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32, "Secure Boot and Driver Signing")
-| `SEC_011`  | For systems that are not intended to be locked down, or that are intended to be locked down but have not been locked down yet, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
-| `SEC_012`  | For systems that are not intended to be locked down, or that are intended to be locked down but have not been locked down yet, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
+| `SEC_040`  | The firmware MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32, "Secure Boot and Driver Signing")
+| `SEC_050`  | For systems that are not intended to be locked down, or that are intended to be locked down but have not been locked down yet, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
+| `SEC_060`  | For systems that are not intended to be locked down, or that are intended to be locked down but have not been locked down yet, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
 2+| _The term "locked down" refers to the (optional) ability to prevent the
     Secure Boot configuration from being modified further once the desired
     state has been reached. This could be implemented, for example, via an
@@ -258,11 +258,11 @@ Security rules straddle hardware and firmware.
     Being able to prevent even a physically present user from altering the
     Secure Boot configuration can be useful in the context of highly regulated
     industries or government bodies._
-| `SEC_020`  | The platform and firmware MUST back the UEFI Authenticated Variables implementation with
+| `SEC_070`  | The platform and firmware MUST back the UEFI Authenticated Variables implementation with
              a mechanism that cannot be accessed or tampered by an unauthorized
              software or hardware agent.
-| `SEC_030`  | The firmware MUST implement in-band firmware updates as per cite:[BRS].
-| `SEC_040`  | Firmware update payloads MUST be digitally signed.
-| `SEC_050`  | Firmware update signatures MUST be validated before being applied.
-| `SEC_060`  | It MUST NOT be possible to bypass secure boot, authentication or digital signature failures, except as specified in SEC_011 and SEC_012.
+| `SEC_080`  | The firmware MUST implement in-band firmware updates as per cite:[BRS].
+| `SEC_090`  | Firmware update payloads MUST be digitally signed.
+| `SEC_100`  | Firmware update signatures MUST be validated before being applied.
+| `SEC_110`  | It MUST NOT be possible to bypass secure boot, authentication or digital signature failures, except as specified in SEC_050 and SEC_060.
 |===
