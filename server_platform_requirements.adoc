@@ -159,7 +159,7 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
 | `FIRM_060`  | The firmware SHOULD include the ability to perform a TFTP-based boot from a network device (cite:[UEFI_platform_specific] number 6).
 | `FIRM_070`  | The firmware SHOULD include the ability to validate boot images.
 | `FIRM_080`  | The firmware SHOULD support UEFI general purpose network applications, including IPv4, IPv6, DNS, TLS, IPSec and VLAN features, supporting relevant protocols (cite:[UEFI_platform_specific] number 7).
-| `FIRM_090`  | The firmware MUST support RISC-V option ROMs, compiled for the RVA20 profile or a later profile (cite:[BRS] BRS-I Recipe), from devices not permanently attached to the platform, including the ability to authenticate these (cite:[UEFI_platform_specific] number 19).
+| `FIRM_090`  | The firmware SHOULD support RISC-V option ROMs, compiled for the RVA20 profile or a later profile (cite:[BRS] BRS-I Recipe), from devices not permanently attached to the platform (cite:[UEFI_platform_specific] number 19).
 | `FIRM_100` | The firmware SHOULD support 64-bit Intel architecture (aka x64, aka AMD64) UEFI option ROM drivers for additional compatibility with the third-party IHV ecosystem.
 2+| _Since expansion cards for GPUs, High Speed NICs, etc. move faster than most platform vendors can integrate drivers into their platform firmware package
     (as well as those drivers making said firmware images extremely large), supporting UEFI Option ROM Drivers in x86_64 via emulation enables more hardware
@@ -167,6 +167,7 @@ PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[Ser
     of no native drivers for the similar devices. The use of EFI Byte Code (EBC) is typically not used by hardware vendors because the compilers have not been
     available for some time and no open source compilers exist. Most add-in boards only ship x86_64 COFF EFI Drivers which are supported by 
     https://github.com/tianocore/edk2-non-osi/tree/master/Emulator/X86EmulatorDxe if it's included in the EDK2 build._
+| `FIRM_105` | If the firmware supports option ROMs, then it MUST support the ability to authenticate them (cite:[UEFI_platform_specific] number 19).
 | `FIRM_110` | The firmware SHOULD support the ability to perform a HTTP-based boot from a network device, including support for HTTPS and DNS, supporting relevant HII protocols (cite:[UEFI_platform_specific] number 22).
 | `FIRM_120` | The firmware MUST support software that runs from EFI firmware to install Load Option Variables (+Boot####, or Driver####, or SysPrep####+) consistent with cite:[UEFI_platform_specific] number 27.
 | `FIRM_130` | The firmware MUST support software that runs from EFI firmware to register for notifications when a call to ResetSystem is called, consistent with cite:[UEFI_platform_specific] number 32.
