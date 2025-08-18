@@ -53,7 +53,8 @@ in this section apply solely to harts in the application processors of the SoC.
      environment allows system software to migrate tasks among the harts without
      constraints._
 
-| `RVA_050`  | The RISC-V application processor harts in the SoC MAY support
+| `RVA_050`  | The RISC-V application processor harts in the SoC MAY have different
+             microarchitecture identifiers (mvendorid, marchid, and mimpid) and MAY support
              different power and performance characteristics but MUST be
              otherwise indistinguishable from each other from a software
              execution viewpoint within a supervisor execution environment (SEE).
