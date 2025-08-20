@@ -247,7 +247,7 @@ Security rules straddle hardware and firmware.
 
 | `SEC_040`  | The firmware MUST implement UEFI Secure Boot and Driver Signing (cite:[UEFI] Section 32, "Secure Boot and Driver Signing")
 | `SEC_050`  | For systems that are not intended to be locked down, or that are intended to be locked down but have not been locked down yet, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to disable Secure Boot enforcement, thus allowing unsigned code to be executed.
-| `SEC_060`  | For systems that are not intended to be locked down, or that are intended to be locked down but have not been locked down yet, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to fully manage the contents of all Secure Boot key stores (PK, KEK, db and dbx). This includes the ability to delete all factory-provided keys, enrolling their own custom keys, and resetting all key stores to their factory state.
+| `SEC_060`  | For systems that are not intended to be locked down, or that are intended to be locked down but have not been locked down yet, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to fully manage the contents of the PK, KEK, db and dbx Secure Boot key stores. This includes the ability to delete all factory-provided keys, enroll their own custom keys, and reset the key stores to their factory state.
 2+| _The term "locked down" refers to the (optional) ability to prevent the
     Secure Boot configuration from being modified further once the desired
     state has been reached. This could be implemented, for example, via an
