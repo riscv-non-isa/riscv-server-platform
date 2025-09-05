@@ -19,7 +19,6 @@ in this section apply solely to harts in the application processors of the SoC.
              following extensions:
 
              * Sv48
-             * Svadu
              * Sdtrig cite:[debug]
              * Sdext cite:[debug]
              * Zkr
@@ -31,15 +30,19 @@ in this section apply solely to harts in the application processors of the SoC.
      motivation for requiring Zkr is that servers typically need access
      to an entropy source at boot time._
 
-| `RVA_030` a| The RISC-V application processor harts in the SoC MUST support
+| `RVA_025` a| The RISC-V application processor harts in the SoC SHOULD support
+             the Svadu extension.
+2+| _Svadu may become mandatory in a later version of this specification._
+
+| `RVA_030` a| The RISC-V application processor harts in the SoC SHOULD support
              the Ssctr extension (cite:[CTR]) with a CTR depth value of 32.
              Additional CTR depth values MAY be supported.
-
-2+| _The motivation for requiring Ssctr is that similar capabilities from other
+2+| _The motivation for suggesting Ssctr is that similar capabilities from other
      architectures are used by profile-guided optimization (PGO) tools to improve
-     builds for workloads typical of servers. Mandating implementation of CTR
-     depth of 32 provides a common CTR depth across implementations for purposes
-     of VM migration._
+     builds for workloads typical of servers. Implementing a CTR depth of 32
+     provides a common CTR depth across implementations for purposes of VM
+     migration. Ssctr and a CTR depth of 32 may become mandatory in a later
+     version of this specification._
 
 | `RVA_040`  | The ISA extensions and associated CSR field widths implemented by
              any of the RISC-V application processor harts in the SoC MUST be
