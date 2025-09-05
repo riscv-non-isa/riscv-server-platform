@@ -13,8 +13,9 @@
                     . Determine the ISA node in ACPI RHCT table for that hart.
                     . Parse the ISA string in the ISA node and verify that all
                       mandatory extensions are supported.
-                    . Verify that the ISA string matches that of hart 0.
-                    . Report the ISA string of hart 0 into the test output log.
+                    . Verify that the ISA strings of all harts in the RHCT table
+                      are the same.
+                    . Report the ISA string.
 | `ME_RVA_020_010`  | See `T_RVA_010_010`.
 | `ME_RVA_030_010` a| . The `T_RVA_010_010` verifies that all ISA strings are
                       identical.
