@@ -222,7 +222,7 @@ Security rules straddle hardware and firmware.
      provides stronger protection against both physical and logical attacks._
 
 | `SEC_020`  | The hardware RoT MUST manage a security lifecycle.
-2+| _A security lifecycle reflects the trustworthiness of a system throughout
+2+a| _A security lifecycle reflects the trustworthiness of a system throughout
      its lifetime and indicates the lifecycle state of hardware-provisioned
      assets.
 
