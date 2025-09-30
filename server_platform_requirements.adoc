@@ -115,13 +115,13 @@ in this section apply solely to harts in the application processors of the SoC.
 be assignable to a virtual machine or exposed to a user-space device driver MUST be
 PCIe devices or comply with the rules for SoC-integrated PCIe devices (cite:[ServerSoC], Section 2.4).
 2+a| _This rule does not apply to components not typically intended by the
-     platform for virtual machine or user-space assignment such as:
+     platform for virtual machine or user-space assignment such as:_
 
-     * Interrupt controllers (e.g., APLIC).
-     * IOMMUs.
-     * Debug modules, trace control blocks, RAS banks, and performance
-       monitoring units.
-     * Controllers, including the root of trust (RoT) controllers,
+     * _Interrupt controllers (e.g., APLIC)._
+     * _IOMMUs._
+     * _Debug modules, trace control blocks, RAS banks, and performance
+       monitoring units._
+     * _Controllers, including the root of trust (RoT) controllers,
        power management controllers, and other SoC management controllers._
 |===
 
