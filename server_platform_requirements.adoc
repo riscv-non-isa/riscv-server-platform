@@ -234,24 +234,25 @@ Security rules straddle hardware and firmware.
 | `SEC_020`  | The hardware RoT MUST manage a security lifecycle.
 2+a| _A security lifecycle reflects the trustworthiness of a system throughout
      its lifetime and indicates the lifecycle state of hardware-provisioned
-     assets.
+     assets._
 
-     The minimum security lifecycle should include the following states:
-     * Manufacture – The system may not yet be locked down and contains no
-       hardware-provisioned assets.
+_The minimum security lifecycle should include the following states:_
 
-     * Security Provisioning – The process of provisioning hardware-provisioned
-       assets.
+     * _Manufacture – The system may not yet be locked down and contains no
+       hardware-provisioned assets._
 
-     * Secured – Hardware-provisioned assets are locked (immutable); only
+     * _Security Provisioning – The process of provisioning hardware-provisioned
+       assets._
+
+     * _Secured – Hardware-provisioned assets are locked (immutable); only
        authorized software may be executed, and revealing debug capabilities
-       are disabled.
+       are disabled._
 
-     * Recoverable Debug – Part of the system is in a revealing debug state.
+     * _Recoverable Debug – Part of the system is in a revealing debug state.
        The RoT remains uncompromised, and hardware-provisioned secrets
-       remain protected.
+       remain protected._
 
-     * Terminated – Hardware-provisioned assets are permanently inaccessible and
+     * _Terminated – Hardware-provisioned assets are permanently inaccessible and
        revoked prior to entering this state. This includes derived assets such as
        attestation keys._
 
