@@ -111,8 +111,18 @@ in this section apply solely to harts in the application processors of the SoC.
 |===
 | ID#      ^| Rule
 | `HSOC_010`  | RISC-V SoCs MUST comply with the Server SoC v1.0 specification cite:[ServerSoC].
-| `HSOC_020`  | All peripherals that are intended for assignment to a VM or a user space device driver MUST be
-PCIe devices or be compliant to rules for SoC-integrated PCIe devices (cite:[ServerSoC], Section 2.4).
+| `HSOC_020`  | All SoC peripherals that are intended by the platform design to
+be assignable to a virtual machine or exposed to a user-space device driver MUST be
+PCIe devices or comply with the rules for SoC-integrated PCIe devices (cite:[ServerSoC], Section 2.4).
+2+a| _This rule does not apply to components not typically intended by the
+     platform for virtual machine or user-space assignment such as:
+
+     * Interrupt controllers (e.g., APLIC).
+     * IOMMUs.
+     * Debug modules, trace control blocks, RAS banks, and performance
+       monitoring units.
+     * Controllers, including the root of trust (RoT) controllers,
+       power management controllers, and other SoC management controllers._
 |===
 
 === Peripherals
