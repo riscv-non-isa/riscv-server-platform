@@ -48,8 +48,8 @@ in this section apply solely to harts in the application processors of the SoC.
 | `RVA_040`  | The ISA extensions and associated CSR field widths implemented by
              any of the RISC-V application processor harts in the SoC MUST be
              identical within a supervisor execution environment (SEE).
-2+| _The set of extensions implemented by the harts must be identical. Where the
-     extension supports optionality in the form of field widths (e.g.,
+2+| _The set of ISA extensions implemented by the harts must be identical.
+     Where an extension supports variability in any form (e.g.
      ASIDLEN, VLEN, allowed vstart values, physical address width, debug
      triggers, cache-block size, etc.), the implementation of these must also be
      identical. Having an identical ISA on all harts in a supervisor execution
