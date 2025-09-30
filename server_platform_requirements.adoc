@@ -45,23 +45,21 @@ in this section apply solely to harts in the application processors of the SoC.
      migration. Ssctr is expected to become mandatory in a future version of this
      specification._
 
-| `RVA_040`  | The ISA extensions and associated CSR field widths implemented by
-             any of the RISC-V application processor harts in the SoC MUST be
-             identical within a supervisor execution environment (SEE).
+| `RVA_040`  | The RISC-V application processor harts within a supervisor
+               execution environment (SEE) MUST be indistinguishable from each
+               other from a software execution viewpoint.
 2+| _The set of ISA extensions implemented by the harts must be identical.
      Where an extension supports variability in any form (e.g.
      ASIDLEN, VLEN, allowed vstart values, physical address width, debug
      triggers, cache-block size, etc.), the implementation of these must also be
-     identical. Having an identical ISA on all harts in a supervisor execution
-     environment allows system software to migrate tasks among the harts without
-     constraints._
-
-| `RVA_050`  | The RISC-V application processor harts in the SoC MAY have different
-             microarchitecture identifiers (mvendorid, marchid, and mimpid) and MAY support
-             different power and performance characteristics but MUST be
-             otherwise indistinguishable from each other from a software
-             execution viewpoint within a supervisor execution environment (SEE).
-2+| _All harts in a supervisor execution environment being indistinguishable from a
+     identical.
+     The set of non-ISA extensions (e.g. SBI) must similarly be identical.
+     The allocated memory address spaces must be identical on the harts.
+     The harts may support different power and performance characteristics.
+     The harts may have different microarchitecture identifiers (mvendorid,
+     marchid, and mimpid), and any other identifiers.
+     This rule addresses the following goal:
+     All harts in a supervisor execution environment being indistinguishable from a
      software execution viewpoint allows system software to migrate tasks among the
      harts without constraints._
 
