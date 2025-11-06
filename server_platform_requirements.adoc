@@ -45,23 +45,39 @@ in this section apply solely to harts in the application processors of the SoC.
      migration. Ssctr is expected to become mandatory in a future version of this
      specification._
 
-| `RVA_040`  | The RISC-V application processor harts within a supervisor
-               execution environment (SEE) MUST be indistinguishable from each
-               other from a software execution viewpoint.
-2+| _The set of ISA extensions implemented by the harts must be identical.
-     Where an extension supports variability in any form (e.g.
-     ASIDLEN, VLEN, allowed vstart values, physical address width, debug
-     triggers, cache-block size, etc.), the implementation of these must also be
-     identical.
-     The set of non-ISA extensions (e.g. SBI) must similarly be identical.
-     The allocated memory address spaces must be identical on the harts.
-     The harts may support different power and performance characteristics.
-     The harts may have different microarchitecture identifiers (mvendorid,
-     marchid, and mimpid), and any other identifiers.
-     This rule addresses the following goal:
-     All harts in a supervisor execution environment being indistinguishable from a
-     software execution viewpoint allows system software to migrate tasks among the
-     harts without constraints._
+| `RVA_040`  | The RISC-V application processor harts within a supervisor execution
+               environment (SEE) must all support the same ISA and non-ISA extensions
+               and the same implementation-dependent choices with those extensions,
+               except when such differences do not interfere with architectural state
+               migration and subsequent execution of threads between harts.
+2+a| _Architectural state comprises all ISA-visible state relevant to
+     the SEE, including but not limited to: XLEN, VLEN, cache block sizes,
+     endianness, privilege levels, supported extensions and their versions,
+     and architecturally defined CSRs and their fields._
+
+_Permitted divergences (non-exhaustive):_
+
+     * _Behaviors the ISA marks as RESERVED or UNSPECIFIED (e.g.,
+       outcomes explicitly left undefined, reserved encodings, or
+       implementation-defined choices) when such differences do not
+       affect state save/restore or execution correctness upon
+       migration. If an execution thread is migrated, then the state saved
+       from a first hart when restored on a second hart will result in the
+       same execution results when execution is constrained to behavior
+       that is neither RESERVED nor UNSPECIFIED._
+
+    * _Microarchitectural properties not architecturally visible (e.g.,
+      cache sizes/associativity/latency, pipeline depth, frequency,
+      power states)._
+
+_Prohibited divergences (non-exhaustive):_
+
+    * _Differences in XLEN, VLEN, cache block sizes, endianness, mandatory
+      privilege features, or any extension that is reported as present within
+      the SEE on any application processor hart._
+
+    * _Differences in the advertised memory consistency model or
+      coherency behavior required by the ISA and platform specification._
 
 | `RVA_060` a| The RISC-V application processor hart MUST support:
 
