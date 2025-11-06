@@ -114,7 +114,7 @@ in this section apply solely to harts in the application processors of the SoC.
 | `HSOC_020`  | All SoC peripherals that are intended by the platform design to
 be assignable to a virtual machine or exposed to a user-space device driver MUST be
 PCIe devices or comply with the rules for SoC-integrated PCIe devices (cite:[ServerSoC], Section 2.4).
-2+a| _This rule does not apply to components not typically intended by the
+2+a| _This rule does not apply to components not intended by the
      platform for virtual machine or user-space assignment such as:_
 
      * _Interrupt controllers (e.g., APLIC)._
