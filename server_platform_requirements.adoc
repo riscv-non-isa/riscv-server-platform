@@ -30,11 +30,11 @@ in this section apply solely to harts in the application processors of the SoC.
      motivation for requiring Zkr is that servers typically need access
      to an entropy source at boot time._
 
-| `RVA_025` a| The RISC-V application processor harts in the SoC SHOULD support
+| `RVA_030` a| The RISC-V application processor harts in the SoC SHOULD support
              the Svadu extension.
 2+| _Svadu is expected to become mandatory in a future version of this specification._
 
-| `RVA_030` a| The RISC-V application processor harts in the SoC SHOULD support
+| `RVA_040` a| The RISC-V application processor harts in the SoC SHOULD support
              the Ssctr extension (cite:[CTR]). If the Ssctr extension is implemented,
              a CTR depth of 32 MUST be supported. Additional CTR depths MAY also be
              supported.
@@ -45,7 +45,7 @@ in this section apply solely to harts in the application processors of the SoC.
      migration. Ssctr is expected to become mandatory in a future version of this
      specification._
 
-| `RVA_040`  | The RISC-V application processor harts within a supervisor execution
+| `RVA_050`  | The RISC-V application processor harts within a supervisor execution
                environment (SEE) must all support the same ISA and non-ISA extensions
                and the same implementation-dependent choices with those extensions,
                except when such differences do not interfere with architectural state
@@ -79,7 +79,7 @@ _Prohibited divergences (non-exhaustive):_
     * _Differences in the advertised memory consistency model or
       coherency behavior required by the ISA and platform specification._
 
-| `RVA_080`  | The RISC-V application processor MUST support at least 6 hardware
+| `RVA_060`  | The RISC-V application processor MUST support at least 6 hardware
              performance counters defined by the Zihpm extension in addition to
              the three counters defined by the Zicntr extension.
 2+| _The motivation for including at least six performance counters, in addition
