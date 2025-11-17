@@ -79,11 +79,25 @@ _Prohibited divergences (non-exhaustive):_
     * _Differences in the advertised memory consistency model or
       coherency behavior required by the ISA and platform specification._
 
-| `RVA_060` a| The RISC-V application processor hart MUST support:
+| `RVA_080`  | The RISC-V application processor MUST support at least 6 hardware
+             performance counters defined by the Zihpm extension in addition to
+             the three counters defined by the Zicntr extension.
+2+| _The motivation for including at least six performance counters, in addition
+     to the three counters defined by the Zicntr extension, originates from prior
+     experience with x86 servers._
+|===
+
+=== RISC-V Hart SEE
+
+[width=100%]
+[%header, cols="5,25"]
+|===
+| ID#      ^| Rule
+| `SEE_010` a| The RISC-V application processor hart MUST support:
 
              * Single stepping using the step bit in  `dcsr`
 
-| `RVA_070` a| The RISC-V application processor hart MUST support:
+| `SEE_020` a| The RISC-V application processor hart MUST support:
 
              * At least 4 instruction address match triggers.
              * At least 4 load/store address match triggers.
@@ -111,13 +125,6 @@ _Prohibited divergences (non-exhaustive):_
 2+| _The motivation for including at least four instruction address and four
      load/store address match triggers originates from prior experience with
      x86 servers._
-
-| `RVA_080`  | The RISC-V application processor MUST support at least 6 hardware
-             performance counters defined by the Zihpm extension in addition to
-             the three counters defined by the Zicntr extension.
-2+| _The motivation for including at least six performance counters, in addition
-     to the three counters defined by the Zicntr extension, originates from prior
-     experience with x86 servers._
 |===
 
 === RISC-V SoC
