@@ -279,8 +279,8 @@ _The minimum security lifecycle should include the following states:_
 | `SEC_060`  | For systems that are not intended to be locked down, or that are intended to be locked down but have not been locked down yet, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to fully manage the contents of the PK, KEK, db and dbx Secure Boot key stores. This includes the ability to delete all factory-provided keys, enroll their own custom keys, and reset the key stores to their factory state.
 2+| _The term "locked down" refers to the (optional) ability to prevent the
     Secure Boot configuration from being modified further once the desired
-    state has been reached. This could be implemented, for example, via an
-    eFuse.
+    security lifecycle state has been reached. This could be implemented, for
+    example, via an eFuse.
 
     Note that the "locked down" state is distinct from the "Deployed Mode"
     Secure Boot state defined in the UEFI spec.
