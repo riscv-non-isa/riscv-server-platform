@@ -110,10 +110,15 @@ _Prohibited divergences (non-exhaustive):_
                ** Meeting the requirements for configuring action=0.
                ** Matching all legal addresses using instruction and load/store
                   address triggers with action=0.
-               ** Filtering using mhselect values of 0 and at least
-                  one of 1/5 or 2/6.
-               ** Filtering using sselect values of 0 and at least
-                  one of 1 or 2.
+               ** Filtering using mhselect values of 0, 2, and 6.
+               ** Filtering using sselect values of 0 and 2.
+
+             * Triggers MAY support
+
+               ** Filtering using mhselect values of 1 and 5.
+               ** Filtering using sselect values of 1.
+
+             * Supported mhselect and sselect values MUST be identical for all triggers.
 
              * When trigger filtering using hcontext is supported, hcontext MUST
                be at least 14 bits wide, and the filter must support matching all
