@@ -229,7 +229,10 @@ Security rules straddle hardware and firmware.
 
      A hardware RoT moves critical functions and assets off the application
      processor hart to a dedicated and isolated trusted subsystem, which
-     provides stronger protection against both physical and logical attacks._
+     provides stronger protection against both physical and logical attacks.
+
+     Examples of open-source RoT IPs include OpenTitan (cite:[OT]) and
+     Caliptra (cite:[CLP])._
 
 | `SEC_020`  | The hardware RoT MUST manage a security lifecycle.
 2+a| _A security lifecycle reflects the trustworthiness of a system throughout
