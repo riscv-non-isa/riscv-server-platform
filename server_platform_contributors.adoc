@@ -3,4 +3,4 @@
 This RISC-V specification has been contributed to directly or indirectly by (in alphabetical order):
 
 [%hardbreaks]
-Andrea Bolognani, Andrei Warkentin, Andrew Jones, Greg Favor, Paul Walmsley, Radim Krčmář, Ved Shanbhogue
+Andrea Bolognani, Andrei Warkentin, Andrew Jones, Greg Favor, Heinrich Schuchardt, Martin Maas, Paul Walmsley, Radim Krčmář, Ravi Sahita, Ved Shanbhogue
