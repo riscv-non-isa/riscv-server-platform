@@ -30,11 +30,11 @@ in this section apply solely to harts in the application processors of the SoC.
      motivation for requiring Zkr is that servers typically need access
      to an entropy source at boot time._
 
-| `RVA_025` a| The RISC-V application processor harts in the SoC SHOULD support
+| `RVA_030` a| The RISC-V application processor harts in the SoC SHOULD support
              the Svadu extension.
 2+| _Svadu is expected to become mandatory in a future version of this specification._
 
-| `RVA_030` a| The RISC-V application processor harts in the SoC SHOULD support
+| `RVA_040` a| The RISC-V application processor harts in the SoC SHOULD support
              the Ssctr extension (cite:[CTR]). If the Ssctr extension is implemented,
              a CTR depth of 32 MUST be supported. Additional CTR depths MAY also be
              supported.
@@ -45,29 +45,59 @@ in this section apply solely to harts in the application processors of the SoC.
      migration. Ssctr is expected to become mandatory in a future version of this
      specification._
 
-| `RVA_040`  | The RISC-V application processor harts within a supervisor
-               execution environment (SEE) MUST be indistinguishable from each
-               other from a software execution viewpoint.
-2+| _The set of ISA extensions implemented by the harts must be identical.
-     Where an extension supports variability in any form (e.g.
-     ASIDLEN, VLEN, allowed vstart values, physical address width, debug
-     triggers, cache-block size, etc.), the implementation of these must also be
-     identical.
-     The set of non-ISA extensions (e.g. SBI) must similarly be identical.
-     The allocated memory address spaces must be identical on the harts.
-     The harts may support different power and performance characteristics.
-     The harts may have different microarchitecture identifiers (mvendorid,
-     marchid, and mimpid), and any other identifiers.
-     This rule addresses the following goal:
-     All harts in a supervisor execution environment being indistinguishable from a
-     software execution viewpoint allows system software to migrate tasks among the
-     harts without constraints._
+| `RVA_050`  | The RISC-V application processor harts within a supervisor execution
+               environment (SEE) must all support the same ISA and non-ISA extensions
+               and the same implementation-dependent choices with those extensions,
+               except when such differences do not interfere with architectural state
+               migration and subsequent execution of threads between harts.
+2+a| _Architectural state comprises all ISA-visible state relevant to
+     the SEE, including but not limited to: XLEN, VLEN, cache block sizes,
+     endianness, privilege levels, supported extensions and their versions,
+     and architecturally defined CSRs and their fields._
 
-| `RVA_060` a| The RISC-V application processor hart MUST support:
+_Permitted divergences (non-exhaustive):_
+
+     * _Behaviors the ISA marks as RESERVED or UNSPECIFIED (e.g.,
+       outcomes explicitly left undefined, reserved encodings, or
+       implementation-defined choices) when such differences do not
+       affect state save/restore or execution correctness upon
+       migration. If an execution thread is migrated, then the state saved
+       from a first hart when restored on a second hart will result in the
+       same execution results when execution is constrained to behavior
+       that is neither RESERVED nor UNSPECIFIED._
+
+    * _Microarchitectural properties not architecturally visible (e.g.,
+      cache sizes/associativity/latency, pipeline depth, frequency,
+      power states)._
+
+_Prohibited divergences (non-exhaustive):_
+
+    * _Differences in XLEN, VLEN, cache block sizes, endianness, mandatory
+      privilege features, or any extension that is reported as present within
+      the SEE on any application processor hart._
+
+    * _Differences in the advertised memory consistency model or
+      coherency behavior required by the ISA and platform specification._
+
+| `RVA_060`  | The RISC-V application processor MUST support at least 6 hardware
+             performance counters defined by the Zihpm extension in addition to
+             the three counters defined by the Zicntr extension.
+2+| _The motivation for including at least six performance counters, in addition
+     to the three counters defined by the Zicntr extension, originates from prior
+     experience with x86 servers._
+|===
+
+=== RISC-V Hart SEE
+
+[width=100%]
+[%header, cols="5,25"]
+|===
+| ID#      ^| Rule
+| `SEE_010` a| The RISC-V application processor hart MUST support:
 
              * Single stepping using the step bit in  `dcsr`
 
-| `RVA_070` a| The RISC-V application processor hart MUST support:
+| `SEE_020` a| The RISC-V application processor hart MUST support:
 
              * At least 4 instruction address match triggers.
              * At least 4 load/store address match triggers.
@@ -80,10 +110,15 @@ in this section apply solely to harts in the application processors of the SoC.
                ** Meeting the requirements for configuring action=0.
                ** Matching all legal addresses using instruction and load/store
                   address triggers with action=0.
-               ** Filtering using mhselect values of 0 and at least
-                  one of 1/5 or 2/6.
-               ** Filtering using sselect values of 0 and at least
-                  one of 1 or 2.
+               ** Filtering using mhselect values of 0, 2, and 6.
+               ** Filtering using sselect values of 0 and 2.
+
+             * Triggers MAY support
+
+               ** Filtering using mhselect values of 1 and 5.
+               ** Filtering using sselect values of 1.
+
+             * Supported mhselect and sselect values MUST be identical for all triggers.
 
              * When trigger filtering using hcontext is supported, hcontext MUST
                be at least 14 bits wide, and the filter must support matching all
@@ -95,13 +130,6 @@ in this section apply solely to harts in the application processors of the SoC.
 2+| _The motivation for including at least four instruction address and four
      load/store address match triggers originates from prior experience with
      x86 servers._
-
-| `RVA_080`  | The RISC-V application processor MUST support at least 6 hardware
-             performance counters defined by the Zihpm extension in addition to
-             the three counters defined by the Zicntr extension.
-2+| _The motivation for including at least six performance counters, in addition
-     to the three counters defined by the Zicntr extension, originates from prior
-     experience with x86 servers._
 |===
 
 === RISC-V SoC
@@ -114,7 +142,7 @@ in this section apply solely to harts in the application processors of the SoC.
 | `HSOC_020`  | All SoC peripherals that are intended by the platform design to
 be assignable to a virtual machine or exposed to a user-space device driver MUST be
 PCIe devices or comply with the rules for SoC-integrated PCIe devices (cite:[ServerSoC], Section 2.4).
-2+a| _This rule does not apply to components not typically intended by the
+2+a| _This rule does not apply to components not intended by the
      platform for virtual machine or user-space assignment such as:_
 
      * _Interrupt controllers (e.g., APLIC)._
