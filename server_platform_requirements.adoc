@@ -227,7 +227,7 @@ PCIe devices or comply with the rules for SoC-integrated PCIe devices (cite:[Ser
 | `FIRM_110` | The firmware SHOULD support the ability to perform a HTTP-based boot from a network device, including support for HTTPS and DNS, supporting relevant HII protocols (cite:[UEFI_platform_specific] number 22).
 | `FIRM_120` | The firmware MUST support software that runs from EFI firmware to install Load Option Variables (+Boot####, or Driver####, or SysPrep####+) consistent with cite:[UEFI_platform_specific] number 27.
 | `FIRM_130` | The firmware MUST support software that runs from EFI firmware to register for notifications when a call to ResetSystem is called, consistent with cite:[UEFI_platform_specific] number 32.
-| `FIRM_140` | If an IOMMU is present, then it MUST be described using the RIMT ACPI table cite:[RIMT].
+| `FIRM_140` | IOMMU MUST be described using the RIMT ACPI table cite:[RIMT].
 | `FIRM_150` | If the firmware allows forward-edge control-flow integrity (FCFI) to be enabled for the supervisor execution environment, the runtime services MUST be compiled to support FCFI.
 2+| _The supervisor execution environment SHOULD enable FCFI through the SBI FWFT LANDING_PAD interface._
 | `FIRM_160` | The support for forward-edge control-flow integrity in runtime services MUST be signaled by the EFI_MEMORY_ATTRIBUTES_FLAGS_RT_FORWARD_CONTROL_FLOW_GUARD flag (cite:[UEFI] Section 4.6.3 EFI_MEMORY_ATTRIBUTES_TABLE).
@@ -307,8 +307,8 @@ _The minimum security lifecycle should include the following states:_
 | `SEC_060`  | For systems that are not intended to be locked down, or that are intended to be locked down but have not been locked down yet, it MUST be possible for a physically present and/or strongly authenticated out-of-band management user to fully manage the contents of the PK, KEK, db and dbx Secure Boot key stores. This includes the ability to delete all factory-provided keys, enroll their own custom keys, and reset the key stores to their factory state.
 2+| _The term "locked down" refers to the (optional) ability to prevent the
     Secure Boot configuration from being modified further once the desired
-    state has been reached. This could be implemented, for example, via an
-    eFuse.
+    security lifecycle state has been reached. This could be implemented, for
+    example, via an eFuse.
 
     Note that the "locked down" state is distinct from the "Deployed Mode"
     Secure Boot state defined in the UEFI spec.
