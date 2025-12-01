@@ -257,7 +257,10 @@ Security rules straddle hardware and firmware.
 
      A hardware RoT moves critical functions and assets off the application
      processor hart to a dedicated and isolated trusted subsystem, which
-     provides stronger protection against both physical and logical attacks._
+     provides stronger protection against both physical and logical attacks.
+
+     Examples of open-source RoT IPs include OpenTitan (cite:[OT]) and
+     Caliptra (cite:[CLP])._
 
 | `SEC_020`  | The hardware RoT MUST manage a security lifecycle.
 2+a| _A security lifecycle reflects the trustworthiness of a system throughout
@@ -322,5 +325,11 @@ _The minimum security lifecycle should include the following states:_
 | `SEC_080`  | The firmware MUST implement in-band firmware updates as per cite:[BRS].
 | `SEC_090`  | Firmware update payloads MUST be digitally signed.
 | `SEC_100`  | Firmware update signatures MUST be validated before being applied.
+2+| _Cryptographic algorithms and key sizes used for firmware update signing and
+    verification should comply with the security and regulatory requirements of the
+    geographies or markets in which the platform operates. Examples of relevant
+    standards include the U.S. National Institute of Standards and Technology
+    (NIST) cryptographic guidelines and the Commercial National Security Algorithm
+    (CNSA) Suite._
 | `SEC_110`  | It MUST NOT be possible to bypass secure boot, authentication or digital signature failures, except as specified in SEC_050 and SEC_060.
 |===
