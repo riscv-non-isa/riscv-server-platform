@@ -71,6 +71,61 @@
 |===
 | ID#            ^| Algorithm
 | `ME_HSOC_010_010` | The Server SoC tests must pass cite:[ServerSoCTest].
+| `MC_HSOC_010_020` | Parse the ACPI RHCT table to determine the firmware-reported
+		      time base frequency and verify it is equal to 1 GHz.
+
+		      This partially tests the product of the Server SoC
+		      requirement CTI_010 (incorporated by reference
+		      in the Server Platform requirement HSOC_010) and
+		      the Boot & Runtime Services specification
+		      section 2.1 (incorporated by reference in the
+		      Server Platform requirement FIRM_010).
+| `MC_HSOC_010_030` | Locate the ACPI _LPI objects for each RISC-V application
+		      processor hart. If present, verify that the __Architectural
+		      Context Lost Flags__ have bit 0 set to 0, indicating no
+		      loss of timer context for each supported low-power idle
+		      state.
+
+		      This partially tests the product of the Server SoC
+		      requirement CTI_020 (incorporated by reference
+		      in the Server Platform requirement HSOC_010) and
+		      the Boot & Runtime Services specification
+		      section 2.1 (incorporated by reference in the
+		      Server Platform requirement FIRM_010).
+| `MC_HSOC_010_040` | For each application processor hart:
+
+                      . Determine the ISA node in ACPI RHCT table for that hart.
+                      . Parse the ISA string in the ISA node and verify that Ssaia
+                        extension is supported.
+                      . Parse the RINTC structure in ACPI MADT tables to verify that
+                        the interrupt controller type for the hart is IMSIC.
+
+		      This partially tests the product of the Server SoC
+		      requirements IIC_010 and IIC_020 (incorporated by reference
+		      in the Server Platform requirement HSOC_010) and
+		      the Boot & Runtime Services specification
+		      section 2.1 (incorporated by reference in the
+		      Server Platform requirement FIRM_010).
+| `MC_HSOC_010_050` | Verify the number of supported supervisor mode interrupt
+                      identities in IMSIC structure of the ACPI MADT table is at
+                      least 255.
+
+		      This partially tests the product of the Server SoC
+		      requirement IIC_050 (incorporated by reference
+		      in the Server Platform requirement HSOC_010) and
+		      the Boot & Runtime Services specification
+		      section 2.1 (incorporated by reference in the
+		      Server Platform requirement FIRM_010).
+| `MC_HSOC_010_060` | Verify the number of supported guest mode interrupt
+                      identities in IMSIC structure of the ACPI MADT table is at
+                      least 63.
+
+		      This partially tests the product of the Server SoC
+		      requirement IIC_060 (incorporated by reference
+		      in the Server Platform requirement HSOC_010) and
+		      the Boot & Runtime Services specification
+		      section 2.1 (incorporated by reference in the
+		      Server Platform requirement FIRM_010).
 | `ME_HSOC_020_010` | _FIXME_.
 |===
 
@@ -102,6 +157,61 @@
 |===
 | ID#            ^| Algorithm
 | `ME_FIRM_010_010` | The BRS-I tests must pass cite:[BRSTest].
+| `MC_FIRM_010_020` | Parse the ACPI RHCT table to determine the firmware-reported
+		      time base frequency and verify it is equal to 1 GHz.
+
+		      This partially tests the product of the Server SoC
+		      requirement CTI_010 (incorporated by reference
+		      in the Server Platform requirement HSOC_010) and
+		      the Boot & Runtime Services specification
+		      section 2.1 (incorporated by reference in the
+		      Server Platform requirement FIRM_010).
+| `MC_FIRM_010_030` | Locate the ACPI _LPI objects for each RISC-V application
+		      processor hart. If present, verify that the __Architectural
+		      Context Lost Flags__ have bit 0 set to 0, indicating no
+		      loss of timer context for each supported low-power idle
+		      state.
+
+		      This partially tests the product of the Server SoC
+		      requirement CTI_020 (incorporated by reference
+		      in the Server Platform requirement HSOC_010) and
+		      the Boot & Runtime Services specification
+		      section 2.1 (incorporated by reference in the
+		      Server Platform requirement FIRM_010).
+| `MC_FIRM_010_040` | For each application processor hart:
+
+                      . Determine the ISA node in ACPI RHCT table for that hart.
+                      . Parse the ISA string in the ISA node and verify that Ssaia
+                        extension is supported.
+                      . Parse the RINTC structure in ACPI MADT tables to verify that
+                        the interrupt controller type for the hart is IMSIC.
+
+		      This partially tests the product of the Server SoC
+		      requirements IIC_010 and IIC_020 (incorporated by reference
+		      in the Server Platform requirement HSOC_010) and
+		      the Boot & Runtime Services specification
+		      section 2.1 (incorporated by reference in the
+		      Server Platform requirement FIRM_010).
+| `MC_FIRM_010_050` | Verify the number of supported supervisor mode interrupt
+                      identities in IMSIC structure of the ACPI MADT table is at
+                      least 255.
+
+		      This partially tests the product of the Server SoC
+		      requirement IIC_050 (incorporated by reference
+		      in the Server Platform requirement HSOC_010) and
+		      the Boot & Runtime Services specification
+		      section 2.1 (incorporated by reference in the
+		      Server Platform requirement FIRM_010).
+| `MC_FIRM_010_060` | Verify the number of supported guest mode interrupt
+                      identities in IMSIC structure of the ACPI MADT table is at
+                      least 63.
+
+		      This partially tests the product of the Server SoC
+		      requirement IIC_060 (incorporated by reference
+		      in the Server Platform requirement HSOC_010) and
+		      the Boot & Runtime Services specification
+		      section 2.1 (incorporated by reference in the
+		      Server Platform requirement FIRM_010).
 | `ME_FIRM_020_010` | _FIXME_.
 | `ME_FIRM_030_010` | _FIXME_.
 | `ME_FIRM_040_010` | _FIXME_.
