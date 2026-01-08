@@ -15,6 +15,12 @@ See the https://github.com/riscv/docs-spec-template/blob/main/LICENSE[LICENSE] f
 Contributors to this specification are contained in the
 https://github.com/riscv-non-isa/riscv-server-platform/blob/main/server_platform_contributors.adoc[server_platform_contributors.adoc] file.
 
+= Governance
+
+The governance for this project is defined in the link:GOVERNANCE.md[GOVERNANCE] file.
+
+Community information, including meeting (if held) and mailing lists are detailed in this file.
+
 = Dependencies
 
 This project is built using AsciiDoctor (Ruby). The repository has been setup to build the PDF on
