@@ -3,18 +3,19 @@
 == Introduction
 
 The RISC-V Server Platform Test specification defines a set of tests to verify if the
-requirements specified in RISC-V Server Platform specification are implemented. The
-tests specified in this specification are not intended to exhaustively verify
-the implementation. In most cases the tests only check for existence of the
-feature. Future versions of this specification may include more exhaustive
-tests.
+requirements specified in the RISC-V Server Platform specification, along with
+specifications included by reference, are implemented. The tests specified in
+this specification are not intended to exhaustively verify the implementation.
+Future versions of this specification may include more exhaustive tests.
 
 The Server Platform specification builds on top of the Server SoC,
 Boot and Runtime Services and Platform Security specifications, which
 in turn have their own test specifications and/or compliance requirements.
 This test specification does not duplicate requirements in these dependent
-test specification, but provides additional tests on top the the tests
-already defined in these other documents.
+test specification, but provides additional tests on top of the tests
+already defined in these other documents.  This test specification does
+include overall platform tests requiring functionality that is first combined
+in this specification.
 
 The tests in this specification are documented use the following format:
 
@@ -36,11 +37,16 @@ The tests in this specification are documented use the following format:
                     log.                                                       +
                                                                                +
                     The character in position `B` indicates the nature of the 
-                    test. If this character is `F` then the test exercises some    
+                    test. If this character is `F` then the test exercises some
                     or all of the functionality associated with the feature. If
                     the character is `E` then the test determines for evidence 
                     that the feature is implemented (e.g., check ACPI tables) 
-                    but does not functionally exercise the feature.
+                    but does not functionally exercise the feature.  If the
+		    character is `C` then the test directly verifies
+		    requirements which can only be tested using a combination
+		    of features specified in the Server Platform document and/or
+		    features incorporated by reference from another
+		    specification.
                    
 |===
 
