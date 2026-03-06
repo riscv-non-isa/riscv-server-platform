@@ -16,7 +16,7 @@ DATE ?= $(shell date +%Y-%m-%d)
 VERSION ?= v0.9
 REVMARK ?= 'This document is in development. Assume everything can change. See http://riscv.org/spec-state for details.'
 DOCKER_RUN := docker run --rm -v ${PWD}:/build -w /build \
-riscvintl/riscv-docs-base-container-image:latest
+ghcr.io/riscv/riscv-docs-base-container-image:latest
 
 HEADER_SOURCE := server_platform_header.adoc
 PDF_RESULT := riscv-server-platform.pdf
