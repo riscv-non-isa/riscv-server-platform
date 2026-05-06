@@ -36,11 +36,9 @@ Server Platform Task Group
 
 // Preamble
 [WARNING]
-.This document is in the link:http://riscv.org/spec-state[Development state]
+.This document is in the link:http://riscv.org/spec-state[Ratified state]
 ====
-Assume everything can change. This draft specification will change before
-being accepted as standard, so implementations made to this draft
-specification will likely not conform to the future standard.
+No changes are allowed. Any necessary or desired modifications must be addressed through a follow-on extension. Ratified extensions are never revised.
 ====
 
 [preface]
@@ -50,7 +48,7 @@ Attribution 4.0 International License (CC-BY 4.0). The full
 license text is available at
 https://creativecommons.org/licenses/by/4.0/.
 
-Copyright 2023-2025 by RISC-V International.
+Copyright 2023-2026 by RISC-V International.
 
 [preface]
 include::server_platform_contributors.adoc[]
