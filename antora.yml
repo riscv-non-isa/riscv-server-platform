@@ -1,0 +1,14 @@
+name: server-platform
+title: Server Platform
+version: v1.0
+nav:
+- modules/ROOT/nav.adoc
+
+asciidoc:
+  attributes:
+    page-group: platforms
+    page-card-description: 'Hardware and sofware capabilities, that portable system software, can rely on being present in a server platform.'
+    page-release-date: 'May 2026'
+    page-pdf_url: _attachments/riscv-server-platform.pdf
+    more_details_url: https://riscv.atlassian.net/wiki/external/YjgzMGRlYmQzZTEzNGQwZjhjZjBiZjUyMzlhODBiNDQ
+    asamBibliography: 'ROOT:pages/server_platform_bibliography.bib'
