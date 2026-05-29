@@ -1,0 +1,6 @@
+.Server Platform
+* xref:index.adoc[Title Page]
+* xref:server_platform_contributors.adoc[Contributors]
+* xref:server_platform_intro.adoc[Introduction]
+* xref:server_platform_requirements.adoc[Server Platform Requirements]
+* xref:serfer_platform_bibliography.adoc[Bibliography]
