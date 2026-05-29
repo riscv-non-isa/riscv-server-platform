@@ -6,7 +6,8 @@ nav:
 
 asciidoc:
   attributes:
-    page-group: platforms
+    #page-group: platforms
+    page-group: application-software
     page-card-description: 'Hardware and sofware capabilities, that portable system software, can rely on being present in a server platform.'
     page-release-date: 'May 2026'
     page-pdf_url: _attachments/riscv-server-platform.pdf
