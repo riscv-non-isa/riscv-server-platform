@@ -1,1 +1,1 @@
-../../server_platform_requirements.adoc
+../../../server_platform_requirements.adoc

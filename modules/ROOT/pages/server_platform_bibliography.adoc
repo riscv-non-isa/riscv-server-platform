@@ -1,1 +1,1 @@
-../../server_platform_bibliography.adoc
+../../../server_platform_bibliography.adoc

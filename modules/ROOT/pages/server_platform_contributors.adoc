@@ -1,1 +1,1 @@
-../../server_platform_contributors.adoc
+../../../server_platform_contributors.adoc
