@@ -6,7 +6,9 @@ image::common::risc-v_logo.svg[id="riscvlogo"xs,alt="RISCV"]
 [.space-below]
 == The RISC-V Server Platform
 
-Version 1.0, Revised 20250513
+Server Platform Task Group
+
+Version v1.0, 2026-05-06: Ratified
 
 // Preamble
 [WARNING]
