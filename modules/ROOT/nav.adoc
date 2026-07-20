@@ -1,7 +1,6 @@
-.Server Platform
-* xref:index.adoc[Title Page]
-* xref:copyright.adoc[Copyright]
-* xref:server_platform_contributors.adoc[Contributors]
-* xref:server_platform_intro.adoc[Introduction]
-* xref:server_platform_requirements.adoc[Server Platform Requirements]
-* xref:server_platform_bibliography.adoc[Bibliography]
+* xref:index.adoc[Server Platform]
+** xref:copyright.adoc[Copyright]
+** xref:server_platform_contributors.adoc[Contributors]
+** xref:server_platform_intro.adoc[Introduction]
+** xref:server_platform_requirements.adoc[Server Platform Requirements]
+** xref:server_platform_bibliography.adoc[Bibliography]
