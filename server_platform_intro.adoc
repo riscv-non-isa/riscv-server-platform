@@ -30,8 +30,9 @@ services based on the UEFI and ACPI standards. To support provisioning and
 platform management, it interfaces with a baseboard management controller (BMC)
 through both in-band and out-of-band (OOB) management interfaces. The in-band
 management interfaces support the use of standard manageability specifications
-like MCTP, PLDM, IPMI, and Redfish for provisioning and management of the operating
-system executing on the platform. The OOB interface supports the use of standard
+like MCTP, PLDM, IPMI, and Redfish for system configuration and event log
+collection by management agents in the operating system and/or firmware executing
+on the application processor harts. The OOB interface supports the use of standard
 manageability specifications like MCTP, PLDM, Redfish, and IPMI for functions such
 as power management, telemetry, debug, and provisioning. The platform security model
 includes guidelines and requirements for aspects such as debug authorization,
