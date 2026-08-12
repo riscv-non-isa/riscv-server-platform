@@ -44,22 +44,28 @@
                       exception using the debug triggers SBI.
                     . Transition to U-mode and invoke an ECALL.
                     . Verify that the trigger fires.
-| `MF_RVA_060_070` a| . Verify `hcontext` exists.
-                    . Repeat `MF_RVA_060_010` and `MF_RVA_060_050` with a matching
-                      and non-matching `hcontext` value.
+| `MF_RVA_060_070` a| . If trigger filtering using `hcontext` is supported, repeat
+                      `MF_RVA_060_010` and `MF_RVA_060_050` with a matching and
+                      non-matching `hcontext` value.
+                    . Otherwise, report the `hcontext` filtering portion as not
+                      applicable.
 | `ME_RVA_060_080` a| . Install and read-back triggers with VMID values between 0
                       and `VMIDLEN`.
-| `MF_RVA_060_090` a| . Verify `scontext` exists.
-                    . Repeat MF_RVA_060_010 and MF_RVA_060_050 with a matching
-                      and non-matching `scontext` value.
+| `MF_RVA_060_090` a| . If trigger filtering using `scontext` is supported, repeat
+                      `MF_RVA_060_010` and `MF_RVA_060_050` with a matching and
+                      non-matching `scontext` value.
+                    . Otherwise, report the `scontext` filtering portion as not
+                      applicable.
 | `ME_RVA_060_100` a| . Install and read-back triggers with ASID values between 0
                       and `ASIDLEN`.
 | `ME_RVA_070_010` a| . Request delegation of all HPM counters using the SBI.
-                    . Verify at least 6 programmable HPM counter are implemented.
+                    . Verify at least 6 programmable HPM counters are implemented.
                     . Verify that the `scountovf` CSR is implemented
-                    . Verify `cycles` and `instret` are writeable.
+                    . Verify that the Ssccfg delegated counter state for `cycle`
+                      and `instret` is writeable through `siselect` and `sireg*`.
                     . Verify ability to toggle counter enable for each
-                      implemented HPM, `cycles`, and `instret` counters.
+                      implemented HPM counter and for the Ssccfg `cycle` and
+                      `instret` counter state.
 |===
 
 <<<
