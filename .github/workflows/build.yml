@@ -44,11 +44,16 @@ jobs:
       run: docker pull ghcr.io/riscv/riscv-docs-base-container-image:latest
 
     # Step 3: Build Files
-    - name: Build Files
+    - name: Build Files (workflow_dispatch)
+      if: github.event_name == 'workflow_dispatch'
       run: make
       env:
         VERSION: v${{ github.event.inputs.version }}
         REVMARK: ${{ github.event.inputs.revision_mark }}
+
+    - name: Build Files (pull_request/push)
+      if: github.event_name == 'pull_request' || github.event_name == 'push'
+      run: make
 
     # Step 4: Upload the built PDF and HTML files as a single artifact
     - name: Upload Build Artifacts
